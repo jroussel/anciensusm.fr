@@ -1,0 +1,1365 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Graphene 1.0 theme for WordPress\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-02-19 16:31+0800\n"
+"PO-Revision-Date: 2011-02-19 19:53+0100\n"
+"Last-Translator: Tommy Stephansen <tommy@stephansen.as>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;_n;esc_attr_e;esc_attr__\n"
+"X-Poedit-Basepath: D:\\[[MyVault]]\\MyProjects\\[Websites]\\wordpress-theme-test\\site\\wp-content\\themes\\graphene\\\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: archive.php:25
+#, php-format
+msgid "Daily Archive: <span>%s</span>"
+msgstr "Daglig arkiv: <span>%s</span>"
+
+#: archive.php:27
+#, php-format
+msgid "Monthly Archive: <span>%s</span>"
+msgstr "Månedlig arkiv: <span>%s</span>"
+
+#: archive.php:29
+#, php-format
+msgid "Yearly Archive: <span>%s</span>"
+msgstr "Årlig arkiv: <span>%s</span>"
+
+#: archive.php:31
+#: category.php:14
+#, php-format
+msgid "Category Archive: <span>%s</span>"
+msgstr "Kategoriarkiv: <span>%s</span>"
+
+#: archive.php:33
+msgid "Blog Archive"
+msgstr "Bloggarkiv"
+
+#: author.php:33
+msgid "Author's posts listings"
+msgstr "Innlegg fra denne forfatteren"
+
+#: comments.php:19
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr "Dette innlegget er passordbeskyttet. Skriv inn passordet for å se eventuelle kommentarer."
+
+#: comments.php:40
+msgid "No comment yet"
+msgstr "Ingen kommentar(er) foreløpig"
+
+#: comments.php:40
+#: loop-author.php:90
+#: loop.php:127
+msgid "1 comment"
+msgstr "1 kommentar"
+
+#: comments.php:40
+#: loop-author.php:90
+#: loop.php:127
+#, php-format
+msgid "% comments"
+msgstr "% kommentarer"
+
+#: comments.php:41
+msgid "No ping yet"
+msgstr "Ingen ping enda"
+
+#: comments.php:41
+msgid "1 ping"
+msgstr "1 ping"
+
+#: comments.php:41
+msgid "% pings"
+msgstr "% ping"
+
+#: comments.php:79
+msgid "Comments have been disabled."
+msgstr "Kommentarer er avslått."
+
+#: comments.php:94
+#, php-format
+msgid "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags and attributes: %s"
+msgstr "Du kan bruke følgende <abbr title=\"HyperText Markup Language\">HTML</abbr> tagger og attributter: %s"
+
+#: comments.php:99
+msgid "Your email address will not be published."
+msgstr "E-post adressen din vil ikke bli offentliggjort."
+
+#: comments.php:102
+#: functions.php:927
+msgid "Submit Comment"
+msgstr "Publiser kommentar"
+
+#: footer.php:47
+msgid "Except where otherwise noted, content on this site is licensed under a <a href=\"http://creativecommons.org/licenses/by-nc-nd/3.0/\">Creative Commons Licence</a>."
+msgstr "Dersom ikke annet er spesifisert, er alt innhold på dette nettstedet lisensiert under <a href=\"http://creativecommons.org/licenses/by-nc-nd/3.0/\">Creative Commons lisensen</a>."
+
+#: footer.php:59
+msgid "Valid XHTML 1.0 Strict"
+msgstr "Gyldig XHTML 1.0 Strict"
+
+#: footer.php:60
+msgid "Valid CSS"
+msgstr "Gyldig CSS"
+
+#: footer.php:60
+msgid "Valid CSS Level 2.1"
+msgstr "Gyldig CSS 2.1"
+
+#: footer.php:82
+#, php-format
+msgid "%1$s uses %2$s theme by %3$s."
+msgstr "%1$s benytter %2$s temaet laget av %3$s."
+
+#: functions.php:178
+msgid "Header Menu"
+msgstr "Toppmeny"
+
+#: functions.php:179
+msgid "Secondary Menu"
+msgstr "Sekundærmeny"
+
+#: functions.php:222
+msgid "Header image by Syahir Hakim"
+msgstr "Toppbilde av Syahir Hakim"
+
+#: functions.php:228
+msgid "This is the default Graphene theme header image, cropped from image by Quantin Houyoux at sxc.hu"
+msgstr "Dette er standard toppbilde for Graphene. Bildet består av et utsnitt av et bilde laget av Quantin Houyoux ved sxc.hu"
+
+#: functions.php:234
+#: functions.php:240
+#: functions.php:246
+#: functions.php:252
+#: functions.php:258
+msgid "Header image cropped from image by Ilco at sxc.hu"
+msgstr "Toppbilde bestående av utsnitt fra et bilde laget av Ilco ved sxc.hu"
+
+#: functions.php:470
+msgid "Home"
+msgstr "Hjem"
+
+#: functions.php:508
+msgid " says:"
+msgstr " sier:"
+
+#: functions.php:514
+#, php-format
+msgid "%1$s at %2$s"
+msgstr "%1$s ved %2$s"
+
+#: functions.php:516
+msgid "Edit comment"
+msgstr "Rediger kommentar"
+
+#: functions.php:520
+msgid "Reply"
+msgstr "Svar"
+
+#: functions.php:531
+msgid "Your comment is awaiting moderation."
+msgstr "Kommentaren venter godkjenning."
+
+#: functions.php:624
+msgid "Sidebar Widget Area"
+msgstr "Widget-område i sidekolonnen"
+
+#: functions.php:626
+msgid "The first sidebar widget area (available in two and three column layouts)."
+msgstr "Widget-område i første sidekolonne (kun tilgjengelig i to- og trekolonners layout)."
+
+#: functions.php:634
+msgid "Sidebar Two Widget Area"
+msgstr "Widget-område i andre sidekolonne"
+
+#: functions.php:636
+msgid "The second sidebar widget area (only available in three column layouts)."
+msgstr "Widget-område i andre sidekolonne (kun tilgjengelig i trekolonners layout)."
+
+#: functions.php:644
+msgid "Footer Widget Area"
+msgstr "Widget-område i bunn"
+
+#: functions.php:646
+msgid "The footer widget area. Leave empty to disable. Set the number of columns to display at the theme's Display Options page."
+msgstr "Widget-område i bunn. Er automatisk avslått så lenge dette feltet er tomt. Sett antall kolonner som skal vises under \"Graphene Innstillinger > Visning\"."
+
+#: functions.php:662
+msgid "Front Page Sidebar Widget Area"
+msgstr "Widget-område på forsiden"
+
+#: functions.php:664
+msgid "The first sidebar widget area that will only be displayed on the front page."
+msgstr "Widget-område i første sidekolonne som kun skal vises på forsiden."
+
+#: functions.php:672
+msgid "Front Page Sidebar Two Widget Area"
+msgstr "Widget-område i andre sidekolonne på forsiden"
+
+#: functions.php:674
+msgid "The second sidebar widget area that will only be displayed on the front page."
+msgstr "Widget-område i andre sidekolonne som kun skal vises på forsiden."
+
+#: functions.php:684
+msgid "Front Page Footer Widget Area"
+msgstr "Widget-område i bunn som kun vises på forsiden"
+
+#: functions.php:686
+msgid "The footer widget area that will only be displayed on the front page. Leave empty to disable. Set the number of columns to display at the theme's Display Options page."
+msgstr "Widget-område i bunn som kun vises på forsiden. Er automatisk avslått så lenge dette feltet er tomt. Sett antall kolonner som skal vises under \"Graphene Innstillinger > Visning\"."
+
+#: functions.php:697
+msgid "Header Widget Area"
+msgstr "Widget-område i topp"
+
+#: functions.php:699
+msgid "The header widget area."
+msgstr "Widget-området i toppseksjonen."
+
+#: functions.php:726
+msgid "Display the latest Twitter status updates."
+msgstr "Vis de siste statusoppdateringene fra Twitter."
+
+#: functions.php:751
+msgid "Follow me on Twitter"
+msgstr "Følg meg på Twitter"
+
+#: functions.php:788
+msgid "Latest tweets"
+msgstr "Siste tvitringer"
+
+#: functions.php:793
+msgid "Title:"
+msgstr "Tittel:"
+
+#: functions.php:797
+msgid "Twitter Username:"
+msgstr "Twitter-brukernavn:"
+
+#: functions.php:801
+msgid "Number of tweets to display:"
+msgstr "Antall tvitringer som skal vises:"
+
+#: functions.php:835
+msgid "Graphene Options"
+msgstr "Graphene Innstillinger"
+
+#: functions.php:839
+msgid "Graphene FAQs"
+msgstr "Graphene FAQ"
+
+#: functions.php:908
+msgid "Name:"
+msgstr "Navn:"
+
+#: functions.php:909
+msgid "Email:"
+msgstr "E-post:"
+
+#: functions.php:910
+msgid "Website:"
+msgstr "Hjemmeside:"
+
+#: functions.php:920
+msgid "Message:"
+msgstr "Melding:"
+
+#: functions.php:948
+msgid "Continue reading &raquo;"
+msgstr "Les mer &raquo;"
+
+#: functions.php:995
+msgid "Older posts &laquo;"
+msgstr "Eldre innlegg &laquo;"
+
+#: functions.php:996
+msgid "&raquo; Newer posts"
+msgstr "&raquo; Nyere innlegg"
+
+#: functions.php:1169
+msgid "View full post"
+msgstr "Vis hele innlegget"
+
+#: functions.php:1304
+msgid "<strong>ERROR: You must supply the post ID to get the image from as an argument when calling the graphene_get_post_image() function.</strong>"
+msgstr "<strong>FEIL: Du må oppgi ID-en til innlegget bildet skal hentes fra som et argument ved bruk av funksjonen graphene_get_post_image().</strong>"
+
+#: header.php:65
+msgid "Subscribe to RSS feed"
+msgstr "Abonnér på RSS-feed"
+
+#: header.php:108
+#: header.php:117
+msgid "Go back to the front page"
+msgstr "Gå tilbake til forsiden"
+
+#: loop-author.php:23
+msgid "Author's details"
+msgstr "Les mer om forfatteren"
+
+#: loop-author.php:25
+#, php-format
+msgid "<strong>Name:</strong> %1$s %2$s"
+msgstr "<strong>Navn:</strong> %1$s %2$s"
+
+#: loop-author.php:26
+#, php-format
+msgid "<strong>Date registered:</strong> %1$s"
+msgstr "<strong>Registrert:</strong> %1$s"
+
+#: loop-author.php:35
+msgid "Biography"
+msgstr "Biografi"
+
+#: loop-author.php:53
+msgid "Latest posts"
+msgstr "Siste innlegg"
+
+#: loop-author.php:56
+#: loop-author.php:90
+#: search-404.php:24
+#, php-format
+msgid "Permalink Link to %s"
+msgstr "Permalenke til %s"
+
+#: loop-author.php:56
+#: loop-author.php:90
+#: loop-children.php:69
+#: loop.php:40
+msgid "(No title)"
+msgstr "(Uten tittel)"
+
+#: loop-author.php:85
+msgid "Most commented posts"
+msgstr "Mest kommenterte innlegg"
+
+#: loop-author.php:90
+#: loop.php:127
+msgid "Leave comment"
+msgstr "Skriv kommentar"
+
+#: loop-children.php:69
+#: loop-children.php:77
+#: loop.php:40
+#, php-format
+msgid "Permalink to %s"
+msgstr "Permalenke til %s"
+
+#: loop-children.php:77
+msgid "View page &raquo;"
+msgstr "Vis side &raquo;"
+
+#: loop.php:58
+msgid "Edit post"
+msgstr "Rediger innlegg"
+
+#: loop.php:76
+msgid "by"
+msgstr "av"
+
+#: loop.php:91
+msgid "Read the rest of this entry &raquo;"
+msgstr "Les resten av denne oppføringen &raquo;"
+
+#: loop.php:105
+msgid "<div class=\"link-pages\"><p><strong>Pages:</strong> "
+msgstr "<div class=\"link-pages\"><p><strong>Sider:</strong> "
+
+#: loop.php:115
+msgid "Tags:"
+msgstr "Tagger:"
+
+#: loop.php:115
+msgid "This post has no tag"
+msgstr "Dette innlegget har ingen tagger"
+
+#: loop.php:140
+msgid "About the author"
+msgstr "Om forfatteren"
+
+#: loop.php:180
+msgid "Not found"
+msgstr "Ikke funnet"
+
+#: loop.php:185
+msgid "Sorry, but you are looking for something that isn't here. Wanna try a search?"
+msgstr "Beklager, det du lette etter finnes ikke. Vil du prøve å søke?"
+
+#: loop.php:187
+msgid "Sorry, but no results were found for that keyword. Wanna try an alternative keyword search?"
+msgstr "Beklager, ingen relevante resultater ble funnet. Ønsker du å prøve på et annet nøkkelord?"
+
+#: search-404.php:3
+msgid "Error 404 - Page Not Found"
+msgstr "Feil 404 - Siden finnes ikke"
+
+#: search-404.php:5
+msgid "Sorry, I've looked everywhere but I can't find the page you're looking for."
+msgstr "Beklager, jeg har lett overalt men finner ikke siden du leter etter."
+
+#: search-404.php:6
+msgid "If you follow the link from another website, I may have removed or renamed the page some time ago. You may want to try searching for the page:"
+msgstr "Dersom du fulgte en lenke fra et annet nettsted, kan det hende jeg har flyttet eller døpt om siden for en stund siden. Du kan gjerne prøve å søke etter den:"
+
+#: search-404.php:14
+msgid "Suggested results"
+msgstr "Resultatforslag"
+
+#: search-404.php:18
+#, php-format
+msgid "I've done a courtesy search for the term %s for you. See if you can find what you're looking for in the list below:"
+msgstr "Jeg har tatt meg friheten å søke på %s for deg. Du kan jo se om du finner det du leter etter i listen under:"
+
+#: search-404.php:35
+msgid "<strong>Sorry, couldn't find anything.</strong> Try searching for alternative terms using the search form above."
+msgstr "<strong>Beklager, fant ingenting.</strong> Prøv å søke på alternative ord ved bruk av søkeskjemaet over."
+
+#: search.php:11
+#, php-format
+msgid "Search results for: <span>%s</span>"
+msgstr "Søkeresultater for: <span>%s</span>"
+
+#: searchform.php:3
+#: searchform.php:4
+msgid "Search"
+msgstr "Søk"
+
+#: sidebar-two.php:36
+#: sidebar.php:42
+msgid "Meta"
+msgstr "Meta"
+
+#: sidebar-two.php:41
+#: sidebar.php:47
+msgid "Posts RSS"
+msgstr "Innlegg RSS"
+
+#: sidebar-two.php:42
+#: sidebar.php:48
+msgid "Comments RSS"
+msgstr "Kommentarer RSS"
+
+#: sidebar-two.php:44
+#: sidebar.php:50
+#, php-format
+msgid "Powered by %s"
+msgstr "Drevet av %s"
+
+#: sidebar-two.php:44
+#: sidebar.php:50
+msgid "Powered by WordPress, state-of-the-art semantic personal publishing platform."
+msgstr "Drevet av WordPress publiseringsplattform."
+
+#: sidebar-two.php:49
+#: sidebar.php:35
+msgid "Archives"
+msgstr "Arkiv"
+
+#: tag.php:14
+#, php-format
+msgid "Tag Archive: <span>%s</span>"
+msgstr "Taggarkiv: <span>%s</span>"
+
+#: admin/custom-fields.php:15
+msgid "Graphene post-specific options"
+msgstr "Innleggsspesifikke innstillinger for Graphene"
+
+#: admin/custom-fields.php:16
+msgid "Graphene page-specific options"
+msgstr "Sidespesifikke innstillinger for Graphene"
+
+#: admin/custom-fields.php:82
+msgid "These settings will only be applied to this particular post or page you're editing. They will override the global settings set in the Graphene Options or Graphene Display options page."
+msgstr "Disse innstillingene vil kun gjelde på nåværende innlegg eller side under redigering. De globale innstillingene i Graphene Innstillinger eller Graphene Visuelt-sidene overstyres."
+
+#: admin/custom-fields.php:83
+msgid "Slider options"
+msgstr "Gliderinnstillinger"
+
+#: admin/custom-fields.php:87
+#: admin/options.php:201
+msgid "Slider image"
+msgstr "Gliderbilde"
+
+#: admin/custom-fields.php:91
+#: admin/custom-fields.php:117
+msgid "Use global setting"
+msgstr "Bruk global innstilling"
+
+#: admin/custom-fields.php:92
+#: admin/options.php:205
+msgid "Don't show image"
+msgstr "Ikke vis bilde"
+
+#: admin/custom-fields.php:93
+#: admin/options.php:206
+msgid "Featured Image"
+msgstr "Hovedbilde"
+
+#: admin/custom-fields.php:94
+#: admin/options.php:207
+msgid "First image in post"
+msgstr "Første bilde i innlegg"
+
+#: admin/custom-fields.php:95
+#: admin/options.php:208
+msgid "Custom URL"
+msgstr "Egendefinert URL"
+
+#: admin/custom-fields.php:101
+#: admin/options.php:214
+msgid "Custom slider image URL"
+msgstr "URL for egendefinert gliderbilde"
+
+#: admin/custom-fields.php:105
+#: admin/options.php:218
+msgid "Make sure you select Custom URL in the slider image option above to use this custom url."
+msgstr "Du må velge \"Egendefinert URL\" i nedtrekkslisten for \"Gliderbilde\" over for å bruke denne egendefinerte adressen."
+
+#: admin/custom-fields.php:109
+msgid "Display options"
+msgstr "Visningsinnstillinger"
+
+#: admin/custom-fields.php:113
+msgid "AddThis Social Sharing button"
+msgstr "AddThis delingsknapp"
+
+#: admin/custom-fields.php:118
+msgid "Show button"
+msgstr "Vis knapp"
+
+#: admin/custom-fields.php:119
+msgid "Hide button"
+msgstr "Skjul knapp"
+
+#: admin/faq.php:12
+msgid "Graphene's Frequently Asked Questions"
+msgstr "Graphene FAQ - vanlige spørsmål og svar"
+
+#: admin/faq.php:15
+msgid "Where should I go for the theme's support?"
+msgstr "Hvor skal jeg gå for support til temaet?"
+
+#: admin/faq.php:16
+msgid "Please direct all support requests for the theme at the theme's <a href=\"http://forum.khairul-syahir.com/forum/graphene-wordpress-theme\">Support Forum</a>."
+msgstr "Vennligst legg inn henvendelser angående temaet på Graphenes eget <a href=\"http://forum.khairul-syahir.com/forum/graphene-wordpress-theme\">Support Forum</a>."
+
+#: admin/faq.php:19
+msgid "The post's featured image is replacing my header image. Help!"
+msgstr "Innleggets hovedbilde overstyrer toppbildet. Hjelp!"
+
+#: admin/faq.php:20
+msgid "This is actually one of the theme's features, based on the feature in the default TwentyTen theme. Any featured image that has a size of greater than or equal to the theme's header image size (900 x 198 pixels) will replace the header image when the post/page that featured image is assigned to is being displayed. It enables you to have different header image for different posts and/or pages."
+msgstr "Dette er faktisk ett av temaets spesielle egenskaper, opprinnelig funnet i standardtemaet TwentyTen. Et hovedbilde som er større enn eller lik temaets toppbildestørrelse (900 x 198 piksler) vil erstatte toppbildet når innlegget/siden bildet tilhører vises. Dette gjør det mulig å ha forskjellige toppbilder for forskjellige innlegg og/eller sider."
+
+#: admin/faq.php:21
+msgid "If you want to disable this feature, simply tick the <em>Disable Featured Image replacing header image</em> option in the <a href=\"themes.php?page=graphene_options&tab=display\">Graphene Options</a> page, under Display > Header Display Options."
+msgstr "Hvis du ønsker å slå av denne muligheten trenger du bare å krysse av for <em>Slå av \"Hovedbilde erstatter toppbilde\"</em> på <a href=\"themes.php?page=graphene_options_display\">Graphene Innstillinger</a> siden, under \"Visning > Toppområde\"."
+
+#: admin/faq.php:24
+msgid "Can I modify Graphene to my heart's content without paying anything?"
+msgstr "Kan jeg fritt gjøre endringer på Graphene uten å betale for det?"
+
+#: admin/faq.php:25
+msgid "The Graphene Wordpress theme, along with all the other themes in the Wordpress.org Official Free Themes Directory, is released under the GNU General Public License (GPL) Version 2. The full text of that licence is included with the theme in the <code>licence.txt</code> file in the theme's folder. Releasing the theme under that licence means, among others, that you are <em>free to modify the theme in any way for any purpose (including commercial)</em> without any obligation to the theme's author. However, if you decide to redistribute the theme, the licence dictates that you must release the theme under the same licence, GPLv2."
+msgstr "Graphene temaet for Wordpress, sammen med alle andre temaer i Wordpress.org's Official Free Themes Directory, er tilgjengelige under GNU General Public License (GPL) versjon 2. En fullstendig gjengivelse av denne lisensen er vedlagt temaet i filen <code>license.txt</code> som finnes i mappen til temaet. At temaet er tilgjengeliggjort under GPLv2-lisensen innebærer blant annet at <em>du står fritt til å modifisere temaet i hvilken som helst form for hvilket som helst formål (inkludert kommersielle)</em> uten noen forpliktelser til temaets forfatter. Imidlertdig er det et krav, dersom du velger å videredistribuere temaet, at du må gjøre dette under samme lisens, GPLv2."
+
+#: admin/faq.php:26
+msgid "But of course, the author would always appreciate <a href=\"themes.php?page=graphene_options\">donations</a> to support ongoing and future developments of the theme."
+msgstr "Men selvsagt vil forfatteren alltid sette pris på <a href=\"themes.php?page=graphene_options\">donasjoner</a> for å støtte pågående og fremtidig utvikling av temaet."
+
+#: admin/faq.php:29
+msgid "If the theme is released under GPLv2, what is this Creative Commons licence in the theme's footer?"
+msgstr "Hvis temaet er tilgjengeliggjort under GPLv2, hva er denne Creative Commons lisensen nevnt i temaets bunnområde?"
+
+#: admin/faq.php:30
+msgid "The Creative Commons licence is a popular licence nowadays that are used by a lot of web-based content authors to licence their work such that it protects their intellectual property but in the same time allows its free distribution. It is included with the theme simply to make it easy for the theme's users to make use of the licence for the content they publish. Theme users can remove it altogether via the theme's Options page should they wish not to use it."
+msgstr "Creative Commons-lisensen er kanskje den mest populære lisensen blant forfattere av nettbasert innhold for å lisensiere sine verker på en slik måte at deres intellektuelle rettigheter beskyttes samtidig som den tillater fri distribusjon. Den er inkludert i temaet simpelthen for å gjøre det lett for temaets brukere å bruke lisensen på innholdet de publiserer. Temabrukere kan velge å fjerne den i det hele og store på temaets Innstillinger-side dersom de ønsker."
+
+#: admin/faq.php:31
+msgid "Put simply, <em>it is not the licence that is applied for the theme itself</em>, but just for the website's content should the theme user wants to use it."
+msgstr "Kort sagt er det <em>ikke lisensen som benyttes for selve temaet</em>, men kun for innholdet på nettstedet, skulle brukeren av temaet ønske å benytte den."
+
+#: admin/faq.php:34
+msgid "Is the theme compatible with this plugin or that plugin?"
+msgstr "Er temaet kompatibelt med det og det innstikket (plugins)?"
+
+#: admin/faq.php:35
+msgid "I don't know. With so many plugins available for Wordpress, there's no way that I (or anybody else for that matter) can test for compatibility for all of them. Having said that, the theme is built with all the necessary Wordpress components included with it, so chances are most plugins will be compatible with the theme."
+msgstr "Det vet jeg ikke. Med så mange innstikk som finnes til Wordpress, ville det være umulig for meg (eller noen andre for den saks skyld) å teste kompatibliteten for dem alle. Med det sagt, er temaet bygget med alle nødvendige Wordpress-komponenter inkludert, så det er gode sjanser for at de fleste innstikk vil være kompatible med temaet."
+
+#: admin/faq.php:36
+msgid "My suggestion is to just install the plugin and try it. If you stumble into problem, ask for support from the plugin author first. If the plugin author says that it's a problems with the theme, you know where to find support."
+msgstr "Jeg foreslår å innstallere innstikket og prøve. Dersom du skulle få problemer, ta kontakt med forfatteren av innstikket først og fremst. Dersom han/hun sier at det er et problem med temaet, vet du hvor du finner støtte hen."
+
+#: admin/options.php:42
+#: admin/uninstall.php:23
+msgid "Uninstall Graphene"
+msgstr "Avinstaller Graphene"
+
+#: admin/options.php:43
+msgid "Please confirm that you would like to uninstall the Graphene theme. All of the theme's options in the database will be deleted."
+msgstr "Vennligst bekreft at du virkelig ønsker å avinstallere Graphene temaet. Alle innstillingene for teamet som er lagret i databasen vil bli slettet."
+
+#: admin/options.php:44
+msgid "This action is not reversible."
+msgstr "Denne handlingen kan ikke angres."
+
+#: admin/options.php:48
+#: admin/options.php:146
+msgid "Uninstall Theme"
+msgstr "Avinstaller tema"
+
+#: admin/options.php:60
+msgid "Graphene Theme Options"
+msgstr "Graphene Innstillinger"
+
+#: admin/options.php:62
+msgid "These are the global settings for the theme. You may override some of the settings in individual posts and pages."
+msgstr "Dette er de globale innstillingene for temaet. Du kan overstyre enkelte innstillinger ved redigering av individuelle innlegg og sider."
+
+#: admin/options.php:66
+msgid "Settings saved."
+msgstr "Innstillinger lagret."
+
+#: admin/options.php:73
+msgid "General"
+msgstr "Generelt"
+
+#: admin/options.php:74
+msgid "Display"
+msgstr "Visning"
+
+#: admin/options.php:106
+msgid "Save Options"
+msgstr "Lagre innstillinger"
+
+#: admin/options.php:118
+msgid "Support the developer"
+msgstr "Støtt utvikleren"
+
+#: admin/options.php:121
+msgid "Developing this awesome theme took a lot of effort and time, months and months of continuous voluntary unpaid work. If you like this theme or if you are using it for commercial websites, please consider a donation to the developer to help support future updates and development."
+msgstr "Å utvikle dette fantastiske temaet var mye arbeid over flere måneder med kontinuerlig frivillig gratisarbeid. Dersom du liker temaet eller benytter det på kommersielle nettsted, ber vi deg vennligst vurdere å donere penger til utvikleren for å støtte arbeidet med fremtidige oppdateringer og videreutvikling av temaet."
+
+#: admin/options.php:136
+msgid "Uninstall theme"
+msgstr "Avinstaller tema"
+
+#: admin/options.php:139
+msgid "<strong>Be careful!</strong> Uninstalling the theme will remove all of the theme's options from the database. Do this only if you decide not to use the theme anymore."
+msgstr "<strong>Vær forsiktig!</strong> Avinstallasjon av dette temaet vil slette alle temainnstillinger fra databasen. Dette må kun gjøres dersom du ikke har tenkt til å bruke temaet mer."
+
+#: admin/options.php:140
+msgid "If you just want to try another theme, there is no need to uninstall this theme. Simply activate the other theme in the Appearance > Themes admin page."
+msgstr "Dersom du bare vil prøve et annet tema, trenger du ikke å avinstallere dette! Bare velg det andre temaet under Utseende > Temaer på kontrollpanelet."
+
+#: admin/options.php:141
+msgid "Note that uninstalling this theme <strong>does not remove</strong> the theme's files. To delete the files after you have uninstalled this theme, go to Appearances > Themes and delete the theme from there."
+msgstr "Merk: avinstallasjon av dette temaet <strong>vil ikke slette</strong> filene til temaet. For å slette filene etter avinstallasjon av temaet, gå til Utseende > Temaer og slett temaet derfra."
+
+#: admin/options.php:168
+msgid "Slider Options"
+msgstr "Innstillinger for glidevisning"
+
+#: admin/options.php:174
+msgid "Category to show in slider"
+msgstr "Vis følgende kategori i glidevisning"
+
+#: admin/options.php:175
+msgid "All posts within the category selected here will be displayed on the slider. Usage example: create a new category \"Featured\" and assign all posts to be displayed on the slider to that category, and then select that category here."
+msgstr "Alle innlegg i valgt kategori vil vises i glidevisningen. Eksempel på bruk: opprett en ny kategori \"Rampelys\" og legg alle innlegg som skal inkluderes i glidevisningen i denne kategorien, før du velger den her."
+
+#: admin/options.php:179
+msgid "Show latest posts"
+msgstr "Vis siste innlegg"
+
+#: admin/options.php:180
+msgid "Show random posts"
+msgstr "Vis tilfeldige innlegg"
+
+#: admin/options.php:193
+msgid "Number of posts to display"
+msgstr "Antall innlegg som skal vises"
+
+#: admin/options.php:223
+msgid "Slider display style"
+msgstr "Stil for glidervisning"
+
+#: admin/options.php:227
+msgid "Thumbnail and excerpt"
+msgstr "Miniatyrbile og utdrag"
+
+#: admin/options.php:228
+msgid "Background image and excerpt"
+msgstr "Bakgrunnsbilde og utdrag"
+
+#: admin/options.php:229
+msgid "Full post content"
+msgstr "Hele innholdet i innlegget"
+
+#: admin/options.php:235
+msgid "Slider height"
+msgstr "Gliderhøyde"
+
+#: admin/options.php:243
+msgid "Slider speed"
+msgstr "Gliderhastighet"
+
+#: admin/options.php:246
+msgid "milliseconds"
+msgstr "millisekunder"
+
+#: admin/options.php:247
+msgid "This is the duration that each slider item will be shown"
+msgstr "Hvor lenge hvert gliderelement skal vises"
+
+#: admin/options.php:252
+msgid "Move slider to bottom of page"
+msgstr "Flytt glider til bunnen av siden"
+
+#: admin/options.php:258
+msgid "Disable slider"
+msgstr "Slå av glidevisning"
+
+#: admin/options.php:271
+msgid "Front Page Options"
+msgstr "Innstillinger for forsiden"
+
+#: admin/options.php:277
+msgid "Front page posts categories"
+msgstr "Innleggskategorier på forsiden"
+
+#: admin/options.php:279
+msgid "Only posts that belong to the categories selected here will be displayed on the front page. Does not affect Static Front Page."
+msgstr "Kun innlegg som tilhører kategoriene du velger her vil vises på forsiden. Påvirker ikke \"statisk forside\". Velg \"--Avslått--\" for å slå av filteret."
+
+#: admin/options.php:284
+msgid "--Disabled--"
+msgstr "--Avslått--"
+
+#: admin/options.php:292
+msgid "You may select multiple categories by holding down the CTRL key."
+msgstr "Du kan velge flere kategorier ved å holde nede CTRL-knappen."
+
+#: admin/options.php:304
+msgid "Widget Area Options"
+msgstr "Innstillinger for Widget-områder"
+
+#: admin/options.php:307
+msgid "Header widget area"
+msgstr "Widget-område i topp"
+
+#: admin/options.php:308
+msgid "<strong>Important:</strong> This widget area is unstyled, as it is often used for advertisement banners, etc. If you enable it, make sure you style it to your needs using the Custom CSS option."
+msgstr "<strong>Viktig:</strong> Dette widgetområdet er ikke stilsatt da det ofte blir brukt til reklamebannere og lignende. Hvis du ønsker å ta det i bruk, så pass på å stilsette det etter egne behov ved hjelp av tilpasningsmuligheten \"Egendefinert CSS\"."
+
+#: admin/options.php:312
+msgid "Enable header widget area"
+msgstr "Slå på widget-området i topp"
+
+#: admin/options.php:321
+msgid "Alternate Widgets"
+msgstr "Alternative Widgets"
+
+#: admin/options.php:322
+msgid "You can enable the theme to show different widget areas in the front page than the rest of the website. If you enable this option, additional widget areas that will only be displayed on the front page will be added to the Widget settings page."
+msgstr "Du kan konfigurere temaet til å vise forskjellige widget-områder på forsiden enn på resten av nettstedet. Hvis du slår på dette valget, vil det på siden for Widget-innstillinger bli mulig å konfigurere disse ekstra widget-områdene som kun skal vises på forsiden."
+
+#: admin/options.php:325
+msgid "Enable alternate front page sidebar widget area"
+msgstr "Slå på alternativt widgetområde for sidekolonnen på forsiden"
+
+#: admin/options.php:329
+msgid "Enable alternate front page footer widget area"
+msgstr "Slå på alternativt widgetområde i bunn på forsiden"
+
+#: admin/options.php:330
+msgid "You can also specify different column counts for the front page footer widget and the rest-of-site footer widget if you enable this option."
+msgstr "Du kan også spesifisere forskjellige kolonneantall for widgetområdet i bunn på forsiden og widgetområdet på resten av siden hvis du slår på dette valget."
+
+#: admin/options.php:343
+msgid "Feed Options"
+msgstr "Innstillinger for RSS"
+
+#: admin/options.php:348
+msgid "Hide feed icon"
+msgstr "Skjul RSS-ikon"
+
+#: admin/options.php:352
+msgid "Use custom feed URL"
+msgstr "Bruk egendefinert RSS URL"
+
+#: admin/options.php:355
+msgid "This custom feed URL will replace the default Wordpress RSS feed URL."
+msgstr "Denne egendefinerte URL-en vil erstatte Wordpress sin standard RSS URL."
+
+#: admin/options.php:367
+msgid "Social Sharing Buttons"
+msgstr "Knapper for sosiale nettsverkstjenester"
+
+#: admin/options.php:372
+msgid "Show social sharing button"
+msgstr "Vis delingsknapp for sosiale nettverk"
+
+#: admin/options.php:376
+msgid "Show in Pages as well?"
+msgstr "Vis også på sider?"
+
+#: admin/options.php:381
+msgid "Your social sharing button code"
+msgstr "Kode for din delingsknapp"
+
+#: admin/options.php:382
+msgid "You can use codes from any popular social sharing sites, like Facebook, Digg, AddThis, etc."
+msgstr "Du kan bruke koder fra hvilke som helst populære sosiale nettverk som Facebook, Digg, AddThis, etc."
+
+#: admin/options.php:396
+msgid "Adsense Options"
+msgstr "Innstillinger for Adsense"
+
+#: admin/options.php:402
+msgid "Show Adsense advertising"
+msgstr "Vis Adsense-reklame"
+
+#: admin/options.php:408
+msgid "Show ads on front page as well"
+msgstr "Vis reklame også på forsiden"
+
+#: admin/options.php:414
+msgid "Your Adsense code"
+msgstr "Din Adsense-kode"
+
+#: admin/options.php:427
+msgid "Google Analytics Options"
+msgstr "Innstillinger for Google Analytics"
+
+#: admin/options.php:430
+msgid "<strong>Note:</strong> the theme now places the Google Analytics script in the <code>&lt;head&gt;</code> element to better support the new asynchronous Google Analytics script. Please make sure you update your script to use the new asynchronous script from Google Analytics."
+msgstr "<strong>Merk:</strong> temaet plasserer nå skriptet for Google Analytics i <code>&lt;head&gt;</code> elementet for å gi bedre støtte for det nye asynkrone Google Analytics skriptet. Vennligst oppdater skriptet ditt til det nye asynkrone skriptet fra Google Analytics, dersom du ikke allerede har gjort dette."
+
+#: admin/options.php:433
+msgid "Enable Google Analytics tracking"
+msgstr "Slå på Google Analytics-sporing"
+
+#: admin/options.php:437
+msgid "Google Analytics tracking code"
+msgstr "Google Analytics sporingskode"
+
+#: admin/options.php:438
+msgid "Make sure you include the full tracking code (including the <code>&lt;script&gt;</code> and <code>&lt;/script&gt;</code> tags) and not just the <code>UA-#######-#</code> code."
+msgstr "Pass på å inkludere hele sporingskoden (inkludert <code>&lt;script&gt;</code> og <code>&lt;/script&gt;</code>-taggene) og ikke bare <code>UA-#######-#</code>-koden."
+
+#: admin/options.php:451
+msgid "Footer Options"
+msgstr "Innstillinger for bunnområdet"
+
+#: admin/options.php:456
+msgid "Show Creative Commons logo"
+msgstr "Vis Creative Commons-logo"
+
+#: admin/options.php:461
+msgid "Copyright text (html allowed)"
+msgstr "Copyright-tekst (HTML er tillatt)"
+
+#: admin/options.php:462
+msgid "If this field is empty, the following default copyright text will be displayed:"
+msgstr "Dersom dette feltet er tomt, vil følgende standard copyright-tekst vises:"
+
+#: admin/options.php:468
+msgid "Do not show copyright info"
+msgstr "Ikke vis copyright info"
+
+#: admin/options.php:488
+msgid "Header Display Options"
+msgstr "Toppområde"
+
+#: admin/options.php:494
+msgid "Use light-coloured header bars"
+msgstr "Bruk lysfargete overskriftsrader"
+
+#: admin/options.php:500
+msgid "Link header image to front page"
+msgstr "La toppbildet lenke til forsiden"
+
+#: admin/options.php:503
+msgid "Check this if you disable the header texts and want the header image to be linked to the front page."
+msgstr "Kryss av her hvis du ønsker å slå av topptekstene og la toppbildet lenke til forsiden."
+
+#: admin/options.php:508
+msgid "Disable Featured Image replacing header image"
+msgstr "Slå av \"Hovedbilde erstatter toppbilde\""
+
+#: admin/options.php:511
+msgid "Check this to prevent the posts Featured Image replacing the header image regardless of the featured image dimension."
+msgstr "Kryss av her for å hindre at innleggets hovedbilde erstatter toppbildet uansett dimensjon på hovedbildet."
+
+#: admin/options.php:516
+msgid "Use random header image"
+msgstr "Bruk tilfeldig toppbilde"
+
+#: admin/options.php:520
+msgid "Check this to show a random header image (random image taken from the available default header images)."
+msgstr "Kryss av her for å vise et tilfeldig toppbilde (tilfeldig bilde velges ut blant alle tilgjengelige standard toppbilder)"
+
+#: admin/options.php:521
+msgid "<strong>Note:</strong> only works on pages where a specific header image is not defined."
+msgstr "<strong>Merk:</strong> virker bare på sider som ikke har et eget toppbilde definert."
+
+#: admin/options.php:526
+msgid "Hide the top bar"
+msgstr "Skjul topprad"
+
+#: admin/options.php:532
+msgid "Search box location"
+msgstr "Plassing av søkeboks"
+
+#: admin/options.php:536
+msgid "Top bar"
+msgstr "Topprad"
+
+#: admin/options.php:537
+msgid "Navigation bar"
+msgstr "Navigeringkolonne"
+
+#: admin/options.php:550
+msgid "Column Options"
+msgstr "Kolonner"
+
+#: admin/options.php:556
+msgid "Column mode"
+msgstr "Kolonnemodus"
+
+#: admin/options.php:606
+msgid "Posts Display Options"
+msgstr "Innlegg"
+
+#: admin/options.php:612
+msgid "Show excerpts in front page"
+msgstr "Vis utdrag på forsiden"
+
+#: admin/options.php:618
+msgid "Hide post author"
+msgstr "Skjul forfatter"
+
+#: admin/options.php:624
+msgid "Post date display"
+msgstr "Innleggsdatovisning"
+
+#: admin/options.php:628
+msgid "Hidden"
+msgstr "Skjult"
+
+#: admin/options.php:629
+msgid "As an icon (without the year)"
+msgstr "Som et ikon (uten årstall)"
+
+#: admin/options.php:630
+msgid "As an icon (including the year)"
+msgstr "Som et ikon (uten årstall)"
+
+#: admin/options.php:631
+msgid "As inline text"
+msgstr "Som inline-tekst"
+
+#: admin/options.php:633
+msgid "Note: displaying date as inline text allows more space for the content area, especially useful for a three-column layout configuration."
+msgstr "Merk: å vise datoen som inline-tekst frigir plass til innholdsområdet, noe som er spesielt nyttig ved bruk av tre kolonners layout."
+
+#: admin/options.php:638
+msgid "Hide post categories"
+msgstr "Skjul kategorier"
+
+#: admin/options.php:644
+msgid "Hide post tags"
+msgstr "Skjul tagger"
+
+#: admin/options.php:650
+msgid "Hide post comment count"
+msgstr "Skjul kommentarantall"
+
+#: admin/options.php:651
+msgid "Only affects posts listing (such as the front page) and not single post view."
+msgstr "Påvirker kun innleggslister (slik som på forsiden), ikke visningen for enkeltinnlegg."
+
+#: admin/options.php:656
+msgid "Show post author's gravatar"
+msgstr "Vis forfatterens gravatar"
+
+#: admin/options.php:660
+msgid "Show post author's info"
+msgstr "Vis info om innleggets forfatter"
+
+#: admin/options.php:664
+msgid "Show More link for manual excerpts"
+msgstr "Vis \"Mer\"-lenke for manuelle utdrag"
+
+#: admin/options.php:677
+msgid "Comments Display Options"
+msgstr "Kommentarer"
+
+#: admin/options.php:683
+msgid "Hide allowed tags in comment form"
+msgstr "Skjul \"tillatte tagger\" på kommentarskjemaet"
+
+#: admin/options.php:696
+msgid "Text Style Options"
+msgstr "Skriftstiler"
+
+#: admin/options.php:699
+msgid "Note that these are CSS properties, so any valid CSS values for each particular property can be used."
+msgstr "Vær obs på at dette er CSS-egenskaper, så alle gyldige CSS-verdier for enhver egenskap kan benyttes."
+
+#: admin/options.php:700
+msgid "Some example CSS properties values:"
+msgstr "Noen eksempelverdier for CSS-egenskaper:"
+
+#: admin/options.php:703
+msgid "Text font:"
+msgstr "Skrifttype:"
+
+#: admin/options.php:707
+msgid "Text size and line height:"
+msgstr "Skriftstørrelse og linjehøyde:"
+
+#: admin/options.php:711
+msgid "Text weight:"
+msgstr "Vekt:"
+
+#: admin/options.php:715
+msgid "Text style:"
+msgstr "Skriftstil:"
+
+#: admin/options.php:719
+msgid "Text colour:"
+msgstr "Tekstfarge:"
+
+#: admin/options.php:723
+#: admin/options.php:864
+#: admin/options.php:893
+msgid "Leave field empty to use the default value."
+msgstr "La feltet stå tomt for å bruke standardverdien."
+
+#: admin/options.php:725
+msgid "Header Text"
+msgstr "Topptekst"
+
+#: admin/options.php:729
+msgid "Title text font"
+msgstr "Titteltekst - skrifttype"
+
+#: admin/options.php:735
+msgid "Title text size"
+msgstr "Titteltekst - størrelse"
+
+#: admin/options.php:741
+msgid "Title text weight"
+msgstr "Titteltekst - vekt"
+
+#: admin/options.php:747
+msgid "Title text line height"
+msgstr "Titteltekst - linjehøyde"
+
+#: admin/options.php:753
+msgid "Title text style"
+msgstr "Titteltekst - stil"
+
+#: admin/options.php:762
+msgid "Description text font"
+msgstr "Beskrivelsestekst - skrifttype"
+
+#: admin/options.php:768
+msgid "Description text size"
+msgstr "Beskrivelsestekst - størrelse"
+
+#: admin/options.php:774
+msgid "Description text weight"
+msgstr "Beskrivelsestekst - vekt"
+
+#: admin/options.php:780
+msgid "Description text line height"
+msgstr "Beskrivelsestekst - linjehøyde"
+
+#: admin/options.php:786
+msgid "Description text style"
+msgstr "Beskrivelsestekst - stil"
+
+#: admin/options.php:792
+msgid "Content Text"
+msgstr "Brødtekst"
+
+#: admin/options.php:796
+msgid "Text font"
+msgstr "Skrifttype"
+
+#: admin/options.php:802
+msgid "Text size"
+msgstr "Skriftstørrelse"
+
+#: admin/options.php:808
+msgid "Text line height"
+msgstr "Linjehøyde"
+
+#: admin/options.php:814
+msgid "Text colour"
+msgstr "Tekstfarge"
+
+#: admin/options.php:820
+msgid "Link Text"
+msgstr "Lenketekst"
+
+#: admin/options.php:824
+msgid "Link colour (normal state)"
+msgstr "Lenkefarge (\"normal\"-tilstand)"
+
+#: admin/options.php:830
+msgid "Link colour (visited state)"
+msgstr "Lenkefarge (\"visited\"-tilstand)"
+
+#: admin/options.php:836
+msgid "Link colour (hover state)"
+msgstr "Lenkefarge (\"hover\"-tilstand)"
+
+#: admin/options.php:842
+msgid "Text decoration (normal state)"
+msgstr "Text decoration (\"normal\"-tilstand)"
+
+#: admin/options.php:848
+msgid "Text decoration (hover state)"
+msgstr "Text decoration (\"hover\"-tilstand)"
+
+#: admin/options.php:861
+msgid "Footer Widget Display Options"
+msgstr "Widget-område i bunn"
+
+#: admin/options.php:869
+msgid "Number of columns to display"
+msgstr "Antall kolonner"
+
+#: admin/options.php:876
+msgid "Number of columns to display for front page footer widget"
+msgstr "Antall kolonner for widget-område i bunn på forsiden"
+
+#: admin/options.php:890
+msgid "Navigation Menu Display Options"
+msgstr "Navigeringsmeny"
+
+#: admin/options.php:898
+msgid "Dropdown menu item width"
+msgstr "Bredde på nedtrekksmenyvalg"
+
+#: admin/options.php:911
+msgid "Miscellaneous Display Options"
+msgstr "Diverse"
+
+#: admin/options.php:914
+msgid "Site title options"
+msgstr "Tittelinnstillinger for nettstedet"
+
+#: admin/options.php:915
+msgid "Use these tags to customise your own site title structure: <code>#site-name</code>, <code>#site-desc</code>, <code>#post-title</code>"
+msgstr "Bruk disse taggene for å tilpasse oppbygningen av tittelen til ditt nettsted: <code>#site-name</code>, <code>#site-desc</code>, <code>#post-title</code>"
+
+#: admin/options.php:919
+msgid "Custom front page site title"
+msgstr "Egendefinert tittel på forsiden"
+
+#: admin/options.php:923
+msgid "Defaults to <code>#site-name &raquo; #site-desc</code>. The <code>#post-title</code> tag cannot be used here."
+msgstr "Settes som standard til <code>#site-name &raquo; #site-desc</code>. Taggen <code>#post-title</code> kan ikke brukes her."
+
+#: admin/options.php:928
+msgid "Custom content pages site title"
+msgstr "Egendefinert tittel på innholdssider"
+
+#: admin/options.php:932
+msgid "Defaults to <code>#post-title &raquo; #site-name</code>."
+msgstr "Settes som standard til <code>#post-title &raquo; #site-name</code>."
+
+#: admin/options.php:937
+msgid "Favicon options"
+msgstr "Favicon innstillinger"
+
+#: admin/options.php:941
+msgid "Favicon URL"
+msgstr "Favicon URL"
+
+#: admin/options.php:945
+msgid "Simply enter the full URL to your favicon file here to enable favicon. Make sure you include the <code>http://</code> in front of the URL as well."
+msgstr "Skriv inn hele URL-en til favicon filen her for å sette opp ditt eget favicon. Pass på å ta med <code>http://</code> foran URL-en."
+
+#: admin/options.php:957
+msgid "Custom CSS"
+msgstr "Egendefinert CSS"
+
+#: admin/options.php:962
+msgid "Custom CSS styles"
+msgstr "Egendefinerte CSS-stiler"
+
+#: admin/options.php:964
+msgid "You can enter your own CSS codes below to modify any other aspects of the theme's appearance that is not included in the options."
+msgstr "Du kan legge inn dine egne CSS-koder under hvis du vil endre på flere aspekter av temaets utseende enn de som finnes i innstillingene."
+
+#: admin/uninstall.php:24
+#, php-format
+msgid "Theme uninstalled. Redirecting to %s"
+msgstr "Temaet er avinstallert. Omdirigerer til %s"
+
+#: admin/uninstall.php:32
+msgid "ERROR: You are not authorised to perform that operation"
+msgstr "FEIL: Du har ikke tillatelse til å utføre denne operasjonen"
+
+#: admin/user.php:7
+msgid "Graphene-specific User Profile Information"
+msgstr "Graphene-spesifikk brukerprofilinformasjon"
+
+#: admin/user.php:8
+msgid "The settings defined here are used only with the Graphene theme."
+msgstr "Disse innstillingene gjelder kun for bruk med Graphene temaet."
+
+#: admin/user.php:12
+msgid "Author profile image URL"
+msgstr "URL til forfatterens profilbilde"
+
+#: admin/user.php:13
+msgid "You can specify the image to be displayed as the author's profile image in the Author's page. If no URL is defined here, the author's <a href=\"http://www.gravatar.com\">Gravatar</a> will be used."
+msgstr "Du kan her velge hvilket bilde som skal vises som forfatterens profilbilde. Dersom ingen URL er definert her, vil forfatterens <a href=\"http://www.gravatar.com\">Gravatar</a> bli benyttet."
+
+#: admin/user.php:17
+msgid "Please enter the URL to your profile image."
+msgstr "Vennligst skriv inn URL-en til ditt profilbilde."
+
+#: admin/user.php:17
+msgid "<strong>Important: </strong>Image width must be less than or equal to <strong>150px</strong>."
+msgstr "<strong>Viktig: </strong>Bildets bredde må være mindre eller lik <stron>150 piksler</strong>."
+
+#~ msgid "Graphene Display"
+#~ msgstr "Visningsinnstillinger for Graphene"
+
+#~ msgid ""
+#~ "Please enter only numerical value for the footer widget column count."
+#~ msgstr "Vennligst bruk en numerisk verdi for antall widget-kolonner i bunn."
+
+#~ msgid ""
+#~ "Please enter only numerical value for the front page footer widget column "
+#~ "count."
+#~ msgstr ""
+#~ "Vennligst bruk en numerisk verdi for antall widget-kolonner på forsiden."
+
+#~ msgid ""
+#~ "Please enter only numerical value for the navigation menu dropdown item "
+#~ "width."
+#~ msgstr ""
+#~ "Vennligst bruk en numerisk verdi for bredden på nedtrekksmenyvalg til "
+#~ "navigeringsmenyen."
+
+#~ msgid "Graphene Display Options"
+#~ msgstr "Visningsinnstillinger for Graphene"
+
+#~ msgid "ERROR:"
+#~ msgstr "FEIL:"
+
+#~ msgid "Sidebar"
+#~ msgstr "Sidestolpe"
+
+#~ msgid "Sidebar Options"
+#~ msgstr "Innstillinger for sidestolpe"
+
+#~ msgid "Content sidebar location"
+#~ msgstr "Plassering av sidekolonne for innhold"
+
+#~ msgid "Right"
+#~ msgstr "Høyre"
+
+#~ msgid "Left"
+#~ msgstr "Venstre"
+
+#~ msgid "Hide sidebar"
+#~ msgstr "Skjul sidestolpe"
+
+#~ msgid ""
+#~ "Will cause all posts and pages to be displayed in a single-column layout."
+#~ msgstr ""
+#~ "Vil gjøre at alle innlegg og sider vises i et layout med en enkelt "
+#~ "kolonne."
+
+#~ msgid "Hide post date"
+#~ msgstr "Skjul dato"
+
+#~ msgid "Show post year"
+#~ msgstr "Vis år for innlegg"
+
+#~ msgid "Only works if the option \"Hide post date\" is disabled."
+#~ msgstr "Virker kun dersom valget \"Skjul dato for innlegg\" er slått av."
+
+#~ msgid ""
+#~ "<code>arial</code>, <code>tahoma</code>, <code>georgia</code>, "
+#~ "<code>'Trebuchet MS'</code>"
+#~ msgstr ""
+#~ "<code>arial</code>, <code>tahoma</code>, <code>georgia</code>, "
+#~ "<code>'Trebuchet MS'</code>"
+
+#~ msgid "<code>12px</code>, <code>12pt</code>, <code>12em</code>"
+#~ msgstr "<code>12px</code>, <code>12pt</code>, <code>12em</code>"
+
+#~ msgid ""
+#~ "<code>normal</code>, <code>bold</code>, <code>100</code>, <code>700</code>"
+#~ msgstr ""
+#~ "<code>normal</code>, <code>bold</code>, <code>100</code>, <code>700</code>"
+
+#~ msgid " <code>normal</code>, <code>italic</code>, <code>oblique</code>"
+#~ msgstr " <code>normal</code>, <code>italic</code>, <code>oblique</code>"
+
+#~ msgid ""
+#~ "<code>blue</code>, <code>navy</code>, <code>red</code>, <code>#ff0000</"
+#~ "code>"
+#~ msgstr ""
+#~ "<code>blue</code>, <code>navy</code>, <code>red</code>, <code>#ff0000</"
+#~ "code>"
+
+#~ msgid "Swap title order"
+#~ msgstr "Rekkefølge for tittelbytte"
+
+#~ msgid ""
+#~ "If this is checked, the website title will be displayed first, followed "
+#~ "by the page title."
+#~ msgstr ""
+#~ "Dersom dette valget krysses av, vil tittelen for nettstedet vises først, "
+#~ "fulgt av tittelen til siden."
+
+#~ msgid "Update Settings"
+#~ msgstr "Oppdater innstillinger"
+
+#~ msgid "You must enter your Adsense code to enable Adsense advertising"
+#~ msgstr "Du må skrive inn din Adsense-kode for å slå på Adsense-reklame"
+
+#~ msgid ""
+#~ "You must enter your AddThis button code to enable the AddThis social "
+#~ "sharing button"
+#~ msgstr ""
+#~ "Du må skrive inn din AddThis-knappkode for å slå på AddThis-delingsknappen"
+
+#~ msgid ""
+#~ "You must enter your Google Analytics tracking code to enable Google "
+#~ "Analytics tracking."
+#~ msgstr ""
+#~ "Du må skrive inn din Google Analytics sporingskode for å slå på Google "
+#~ "Analytics-sporing."
+
+#~ msgid "AddThis Options"
+#~ msgstr "Innstillinger for AddThis"
+
+#~ msgid "Your AddThis button code"
+#~ msgstr "Din AddThis-knappkode"
+
+#~ msgid ""
+#~ "You can generate your button code from the <a href=\"http://www.addthis."
+#~ "com/\">AddThis website</a>."
+#~ msgstr ""
+#~ "Du kan generere din egen knappkode på <a href=\"http://www.addthis.com/"
+#~ "\">AddThis hjemmeside</a>."

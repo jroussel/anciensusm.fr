@@ -1,3 +1,5 @@
+wp-content/gallery/
+
 # Sublime Text
 *.sublime-project
 *.sublime-workspace

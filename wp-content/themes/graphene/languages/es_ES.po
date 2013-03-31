@@ -1,0 +1,1388 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Tema Graphene para WordPress en español (versión 1.0.8a)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-02-19 20:08+0100\n"
+"PO-Revision-Date: 2011-02-19 20:08+0100\n"
+"Last-Translator: Eduardo Larequi <elarequi@gmail.com>\n"
+"Language-Team: PNTE <blogs@educacion.navarra.es>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;_n;esc_attr_e;esc_attr__\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: Spain\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: archive.php:25
+#, php-format
+msgid "Daily Archive: <span>%s</span>"
+msgstr "Entradas del <span>%s</span>"
+
+#: archive.php:27
+#, php-format
+msgid "Monthly Archive: <span>%s</span>"
+msgstr "Entradas de <span>%s</span>"
+
+#: archive.php:27
+msgid "F Y"
+msgstr "F \\d\\e Y"
+
+#: archive.php:29
+#, php-format
+msgid "Yearly Archive: <span>%s</span>"
+msgstr "Entradas del año <span>%s</span>"
+
+#: archive.php:31
+#: category.php:14
+#, php-format
+msgid "Category Archive: <span>%s</span>"
+msgstr "Entradas de la categoría <span>%s</span>"
+
+#: archive.php:33
+msgid "Blog Archive"
+msgstr "Archivo del blog"
+
+#: author.php:33
+msgid "Author's posts listings"
+msgstr "Listado de entradas del autor"
+
+#: comments.php:19
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr "Entrada protegida por contraseña. Escribe la contraseña para ver los comentarios."
+
+#: comments.php:40
+msgid "No comment yet"
+msgstr "Sin comentarios"
+
+#: comments.php:40
+#: loop-author.php:90
+#: loop.php:127
+msgid "1 comment"
+msgstr "Un comentario"
+
+#: comments.php:40
+#: loop-author.php:90
+#: loop.php:127
+#, php-format
+msgid "% comments"
+msgstr "% comentarios"
+
+#: comments.php:41
+msgid "No ping yet"
+msgstr "Sin pings"
+
+#: comments.php:41
+msgid "1 ping"
+msgstr "Un ping"
+
+#: comments.php:41
+msgid "% pings"
+msgstr "% pings"
+
+#: comments.php:79
+msgid "Comments have been disabled."
+msgstr "Los comentarios han sido desactivados."
+
+#: comments.php:94
+#, php-format
+msgid "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags and attributes: %s"
+msgstr "Puedes utilizar las siguientes etiquetas y atributos <abbr title=\"HyperText Markup Language\">HTML</abbr>: %s"
+
+#: comments.php:99
+msgid "Your email address will not be published."
+msgstr "Tu email nunca se publicará."
+
+#: comments.php:102
+#: functions.php:927
+msgid "Submit Comment"
+msgstr "Enviar"
+
+#: footer.php:47
+msgid "Except where otherwise noted, content on this site is licensed under a <a href=\"http://creativecommons.org/licenses/by-nc-nd/3.0/\">Creative Commons Licence</a>."
+msgstr "A no ser que se establezca otra cosa, el contenido de este sitio se publica bajo una licencia <a href=\"http://creativecommons.org/licenses/by-nc-nd/3.0/\">Creative Commons</a>."
+
+#: footer.php:59
+msgid "Valid XHTML 1.0 Strict"
+msgstr "Valid XHTML 1.0 Strict"
+
+#: footer.php:60
+msgid "Valid CSS"
+msgstr "Valid CSS"
+
+#: footer.php:60
+msgid "Valid CSS Level 2.1"
+msgstr "Valid CSS Level 2.1"
+
+#: footer.php:82
+#, php-format
+msgid "%1$s uses %2$s theme by %3$s."
+msgstr "%1$s utiliza el tema %2$s, diseñado por %3$s y traducido por el <a href=\"http://pnte.educacion.navarra.es/portal/\" target=\"_blank\" title=\"Programa de Nuevas Tecnologías y Educación\">PNTE</a>."
+
+#: functions.php:178
+msgid "Header Menu"
+msgstr "Menú de cabecera"
+
+#: functions.php:179
+msgid "Secondary Menu"
+msgstr "Menú secundario"
+
+#: functions.php:222
+msgid "Header image by Syahir Hakim"
+msgstr "Imagen de cabecera por Syahir Hakim"
+
+#: functions.php:228
+msgid "This is the default Graphene theme header image, cropped from image by Quantin Houyoux at sxc.hu"
+msgstr "Esta es la imagen de cabecera por defecto del tema Graphene, recortada a partir de una imagen de Quantin Houyoux en sxc.hu"
+
+#: functions.php:234
+#: functions.php:240
+#: functions.php:246
+#: functions.php:252
+#: functions.php:258
+msgid "Header image cropped from image by Ilco at sxc.hu"
+msgstr "Imagen de cabecera recortada a partir de una imagen de Ilco en sxc.hu"
+
+#: functions.php:470
+msgid "Home"
+msgstr "Inicio"
+
+#: functions.php:508
+msgid " says:"
+msgstr " escribió:"
+
+#: functions.php:514
+#, php-format
+msgid "%1$s at %2$s"
+msgstr "%1$s, a las %2$s"
+
+#: functions.php:516
+msgid "Edit comment"
+msgstr "Editar comentario"
+
+#: functions.php:520
+msgid "Reply"
+msgstr "Responder"
+
+#: functions.php:531
+msgid "Your comment is awaiting moderation."
+msgstr "Tu comentario está a la espera de ser aprobado."
+
+#: functions.php:624
+msgid "Sidebar Widget Area"
+msgstr "Barra lateral principal"
+
+#: functions.php:626
+msgid "The first sidebar widget area (available in two and three column layouts)."
+msgstr "La primera área de widgets de la barra lateral (disponible en las disposiciones de dos y tres columnas)"
+
+#: functions.php:634
+msgid "Sidebar Two Widget Area"
+msgstr "Segunda barra lateral"
+
+#: functions.php:636
+msgid "The second sidebar widget area (only available in three column layouts)."
+msgstr "La segunda área de widgets de la barra lateral (sólo disponible en las disposiciones de tres columnas)."
+
+#: functions.php:644
+msgid "Footer Widget Area"
+msgstr "Pie de página"
+
+#: functions.php:646
+msgid "The footer widget area. Leave empty to disable. Set the number of columns to display at the theme's Display Options page."
+msgstr "Área de widgets del pie de página. Si deseas desactivarla, déjala vacía. Puedes establecer el número de columnas que deseas mostrar en la página de opciones de visualización."
+
+#: functions.php:662
+msgid "Front Page Sidebar Widget Area"
+msgstr "Barra lateral de la página de inicio"
+
+#: functions.php:664
+msgid "The first sidebar widget area that will only be displayed on the front page."
+msgstr "La primera área de widgets de la barra lateral, que sólo se mostrará en la página principal."
+
+#: functions.php:672
+msgid "Front Page Sidebar Two Widget Area"
+msgstr "Segunda barra lateral de la página de inicio"
+
+#: functions.php:674
+msgid "The second sidebar widget area that will only be displayed on the front page."
+msgstr "La segunda área de widgets de la barra lateral, que sólo se mostrará en la página principal."
+
+#: functions.php:684
+msgid "Front Page Footer Widget Area"
+msgstr "Pie de la página de inicio"
+
+#: functions.php:686
+msgid "The footer widget area that will only be displayed on the front page. Leave empty to disable. Set the number of columns to display at the theme's Display Options page."
+msgstr "El área de widgets del pie de página que sólo se mostrará en la página de inicio. Si deseas desactivarla, déjala vacía. Desde la página de opciones del tema puedes establecer el número de columnas que deseas mostrar en esta área."
+
+#: functions.php:697
+msgid "Header Widget Area"
+msgstr "Cabecera"
+
+#: functions.php:699
+msgid "The header widget area."
+msgstr "El área de widgets de la cabecera"
+
+#: functions.php:726
+msgid "Display the latest Twitter status updates."
+msgstr "Mostrar las últimas intervenciones en Twitter."
+
+#: functions.php:751
+msgid "Follow me on Twitter"
+msgstr "Sígueme en Twitter"
+
+#: functions.php:788
+msgid "Latest tweets"
+msgstr "Últimos tweets"
+
+#: functions.php:793
+msgid "Title:"
+msgstr "Título:"
+
+#: functions.php:797
+msgid "Twitter Username:"
+msgstr "Nombre de usuario de Twitter:"
+
+#: functions.php:801
+msgid "Number of tweets to display:"
+msgstr "Número de tweets que mostrar:"
+
+#: functions.php:835
+msgid "Graphene Options"
+msgstr "Opciones del tema Graphene"
+
+#: functions.php:839
+msgid "Graphene FAQs"
+msgstr "Preguntas más frecuentes (FAQ) del tema Graphene"
+
+#: functions.php:908
+msgid "Name:"
+msgstr "Nombre:"
+
+#: functions.php:909
+msgid "Email:"
+msgstr "Email:"
+
+#: functions.php:910
+msgid "Website:"
+msgstr "Sitio web:"
+
+#: functions.php:920
+msgid "Message:"
+msgstr "Mensaje:"
+
+#: functions.php:948
+msgid "Continue reading &raquo;"
+msgstr "Continuar leyendo &raquo;"
+
+#: functions.php:995
+msgid "Older posts &laquo;"
+msgstr "Entradas más antiguas &laquo;"
+
+#: functions.php:996
+msgid "&raquo; Newer posts"
+msgstr "&raquo; Entradas más recientes"
+
+#: functions.php:1169
+msgid "View full post"
+msgstr "Ver entrada completa"
+
+#: functions.php:1304
+msgid "<strong>ERROR: You must supply the post ID to get the image from as an argument when calling the graphene_get_post_image() function.</strong>"
+msgstr "<strong>ERROR: cuando llames a la función graphene_get_post_image(), debes proporcionar el ID de la entrada de la que desees obtener la imagen como un argumento.</strong>"
+
+#: header.php:65
+msgid "Subscribe to RSS feed"
+msgstr "Suscribirse a la fuente RSS"
+
+#: header.php:108
+#: header.php:117
+msgid "Go back to the front page"
+msgstr "Volver a la página de inicio"
+
+#: loop-author.php:23
+msgid "Author's details"
+msgstr "Información sobre el autor"
+
+#: loop-author.php:25
+#, php-format
+msgid "<strong>Name:</strong> %1$s %2$s"
+msgstr "<strong>Nombre:</strong> %1$s %2$s"
+
+#: loop-author.php:26
+#, php-format
+msgid "<strong>Date registered:</strong> %1$s"
+msgstr "<strong>Fecha de registro:</strong> %1$s"
+
+#: loop-author.php:35
+msgid "Biography"
+msgstr "Biografía"
+
+#: loop-author.php:53
+msgid "Latest posts"
+msgstr "Entradas más recientes"
+
+#: loop-author.php:56
+#: loop-author.php:90
+#: search-404.php:24
+#, php-format
+msgid "Permalink Link to %s"
+msgstr "Enlace permanente a %s"
+
+#: loop-author.php:56
+#: loop-author.php:90
+#: loop-children.php:69
+#: loop.php:40
+msgid "(No title)"
+msgstr "(Sin título)"
+
+#: loop-author.php:85
+msgid "Most commented posts"
+msgstr "Entradas más comentadas"
+
+#: loop-author.php:90
+#: loop.php:127
+msgid "Leave comment"
+msgstr "Sin comentarios"
+
+#: loop-children.php:69
+#: loop-children.php:77
+#: loop.php:40
+#, php-format
+msgid "Permalink to %s"
+msgstr "Enlace permanente a %s"
+
+#: loop-children.php:77
+msgid "View page &raquo;"
+msgstr "Ver página &raquo;"
+
+#: loop.php:58
+msgid "Edit post"
+msgstr "Editar"
+
+#: loop.php:76
+msgid "by"
+msgstr "por"
+
+#: loop.php:91
+msgid "Read the rest of this entry &raquo;"
+msgstr "Continuar leyendo &raquo;"
+
+#: loop.php:105
+msgid "<div class=\"link-pages\"><p><strong>Pages:</strong> "
+msgstr "<div class=\"link-pages\"><p><strong>Páginas:</strong> "
+
+#: loop.php:115
+msgid "Tags:"
+msgstr "Etiquetas:"
+
+#: loop.php:115
+msgid "This post has no tag"
+msgstr "Esta entrada no tiene ninguna etiqueta"
+
+#: loop.php:140
+msgid "About the author"
+msgstr "Acerca del autor"
+
+#: loop.php:180
+msgid "Not found"
+msgstr "Página no encontrada"
+
+#: loop.php:185
+msgid "Sorry, but you are looking for something that isn't here. Wanna try a search?"
+msgstr "Lo sentimos, pero estás buscando algo que no se encuentra aquí. ¿Quieres probar con el formulario de búsqueda?"
+
+#: loop.php:187
+msgid "Sorry, but no results were found for that keyword. Wanna try an alternative keyword search?"
+msgstr "Lo sentimos, pero no se ha encontrado ningún resultado correspondiente a tu patrón de búsqueda. Quizás quieras intentarlo con otro diferente."
+
+#: search-404.php:3
+msgid "Error 404 - Page Not Found"
+msgstr "Error 404 - Página no encontrada"
+
+#: search-404.php:5
+msgid "Sorry, I've looked everywhere but I can't find the page you're looking for."
+msgstr "Lo sentimos, pero aunque hemos buscado por todo el blog, no ha sido posible encontrar la página que estabas buscando."
+
+#: search-404.php:6
+msgid "If you follow the link from another website, I may have removed or renamed the page some time ago. You may want to try searching for the page:"
+msgstr "Es posible que la página a la que has intentado llegar haya sido renombrada o eliminada. Inténtalo de nuevo mediante el formulario de búsqueda:"
+
+#: search-404.php:14
+msgid "Suggested results"
+msgstr "Resultados aconsejados"
+
+#: search-404.php:18
+#, php-format
+msgid "I've done a courtesy search for the term %s for you. See if you can find what you're looking for in the list below:"
+msgstr "Hemos puesto en práctica una búsqueda de cortesía correspondiente al término %s que has utilizado. Comprueba si puedes encontrar lo que estabas buscando en la lista que tienes a continuación:"
+
+#: search-404.php:35
+msgid "<strong>Sorry, couldn't find anything.</strong> Try searching for alternative terms using the search form above."
+msgstr "<strong>Lo sentimos, pero no hemos podido encontrar nada.</strong>. Inténtalo con un patrón de búsqueda alternativo mediante el formulario que tienes sobre estas líneas."
+
+#: search.php:11
+#, php-format
+msgid "Search results for: <span>%s</span>"
+msgstr "Resultados de búsqueda correspondientes a '<span>%s</span>'"
+
+#: searchform.php:3
+#: searchform.php:4
+msgid "Search"
+msgstr "Buscar"
+
+#: sidebar-two.php:36
+#: sidebar.php:42
+msgid "Meta"
+msgstr "Meta"
+
+#: sidebar-two.php:41
+#: sidebar.php:47
+msgid "Posts RSS"
+msgstr "Fuente RSS de entradas"
+
+#: sidebar-two.php:42
+#: sidebar.php:48
+msgid "Comments RSS"
+msgstr "Fuente RSS de comentarios"
+
+#: sidebar-two.php:44
+#: sidebar.php:50
+#, php-format
+msgid "Powered by %s"
+msgstr "Blog elaborado con %s"
+
+#: sidebar-two.php:44
+#: sidebar.php:50
+msgid "Powered by WordPress, state-of-the-art semantic personal publishing platform."
+msgstr "Blog elaborado con WordPress, la plataforma de publicación semántica personal definitiva."
+
+#: sidebar-two.php:49
+#: sidebar.php:35
+msgid "Archives"
+msgstr "Archivo del blog"
+
+#: tag.php:14
+#, php-format
+msgid "Tag Archive: <span>%s</span>"
+msgstr "Entradas correspondientes a la etiqueta '<span>%s</span>'"
+
+#: admin/custom-fields.php:15
+msgid "Graphene post-specific options"
+msgstr "Opciones del tema Graphene específicas para las entradas"
+
+#: admin/custom-fields.php:16
+msgid "Graphene page-specific options"
+msgstr "Opciones del tema Graphene para las páginas"
+
+#: admin/custom-fields.php:82
+msgid "These settings will only be applied to this particular post or page you're editing. They will override the global settings set in the Graphene Options or Graphene Display options page."
+msgstr "Estos parámetros de configuración sólo se aplicarán a la entrada o página que estés editando. Dichos parámetros sobreescribirán los que se hayan definido en la configuración global del tema Graphene, o en la página de opciones de visualización."
+
+#: admin/custom-fields.php:83
+msgid "Slider options"
+msgstr "Opciones del carrusel"
+
+#: admin/custom-fields.php:87
+#: admin/options.php:201
+msgid "Slider image"
+msgstr "Imagen del carrusel"
+
+#: admin/custom-fields.php:91
+#: admin/custom-fields.php:117
+msgid "Use global setting"
+msgstr "Utilizar configuración global"
+
+#: admin/custom-fields.php:92
+#: admin/options.php:205
+msgid "Don't show image"
+msgstr "No mostrar imagen"
+
+#: admin/custom-fields.php:93
+#: admin/options.php:206
+msgid "Featured Image"
+msgstr "Imagen destacada"
+
+#: admin/custom-fields.php:94
+#: admin/options.php:207
+msgid "First image in post"
+msgstr "Primera imagen de la entrada"
+
+#: admin/custom-fields.php:95
+#: admin/options.php:208
+msgid "Custom URL"
+msgstr "URL personalizada"
+
+#: admin/custom-fields.php:101
+#: admin/options.php:214
+msgid "Custom slider image URL"
+msgstr "URL personalizada para la imagen del carrusel"
+
+#: admin/custom-fields.php:105
+#: admin/options.php:218
+msgid "Make sure you select Custom URL in the slider image option above to use this custom url."
+msgstr "Asegúrate de que has seleccionado el valor de \"URL personalizada\" en la opción de \"Imagen del carrusel\"."
+
+#: admin/custom-fields.php:109
+msgid "Display options"
+msgstr "Opciones de visualización"
+
+#: admin/custom-fields.php:113
+msgid "AddThis Social Sharing button"
+msgstr "Botón de AddThis Social Sharing"
+
+#: admin/custom-fields.php:118
+msgid "Show button"
+msgstr "Mostrar botón"
+
+#: admin/custom-fields.php:119
+msgid "Hide button"
+msgstr "Ocultar botón"
+
+#: admin/faq.php:12
+msgid "Graphene's Frequently Asked Questions"
+msgstr "Preguntas más frecuentes del tema Graphene"
+
+#: admin/faq.php:15
+msgid "Where should I go for the theme's support?"
+msgstr "¿A dónde debo acudir para encontrar soporte para el tema?"
+
+#: admin/faq.php:16
+msgid "Please direct all support requests for the theme at the theme's <a href=\"http://forum.khairul-syahir.com/forum/graphene-wordpress-theme\">Support Forum</a>."
+msgstr "Por favor, envía todas las solicitudes de soporte relacionadas con el tema al <a href=\"http://forum.khairul-syahir.com/forum/graphene-wordpress-theme\">Foro de soporte</a>."
+
+#: admin/faq.php:19
+msgid "The post's featured image is replacing my header image. Help!"
+msgstr "La imagen destacada de la entrada ha sustituido a mi imagen de cabecera. ¡Ayuda!"
+
+#: admin/faq.php:20
+msgid "This is actually one of the theme's features, based on the feature in the default TwentyTen theme. Any featured image that has a size of greater than or equal to the theme's header image size (900 x 198 pixels) will replace the header image when the post/page that featured image is assigned to is being displayed. It enables you to have different header image for different posts and/or pages."
+msgstr "Esta es una de las características del tema que están basadas en el comportamiento de TwentyTen, el tema por defecto de WordPress. Cualquier imagen destacada que tenga un tamaño igual o mayor que la imagen de cabecera del tema (900 x 198 píxels) sustituirá a la imagen de cabecera cuando se muestre la entrada o página a la que está asignada dicha imagen. Esta opción te permite tener diferentes imágenes de cabecera para diferentes entradas o/y páginas."
+
+#: admin/faq.php:21
+msgid "If you want to disable this feature, simply tick the <em>Disable Featured Image replacing header image</em> option in the <a href=\"themes.php?page=graphene_options&tab=display\">Graphene Options</a> page, under Display > Header Display Options."
+msgstr "Si quieres desactivar esta característica, simplemente activa la casilla <em>Desactivar la posibilidad de que la imagen destacada sustituya a la imagen de cabecera</em>, en la página de <a href=\"themes.php?page=graphene_options&tab=display\">Visualización</a> del tema, en la sección Opciones de la cabecera."
+
+#: admin/faq.php:24
+msgid "Can I modify Graphene to my heart's content without paying anything?"
+msgstr "¿Puedo modificar el tema Graphene a mi conveniencia sin pagar nada?"
+
+#: admin/faq.php:25
+msgid "The Graphene Wordpress theme, along with all the other themes in the Wordpress.org Official Free Themes Directory, is released under the GNU General Public License (GPL) Version 2. The full text of that licence is included with the theme in the <code>licence.txt</code> file in the theme's folder. Releasing the theme under that licence means, among others, that you are <em>free to modify the theme in any way for any purpose (including commercial)</em> without any obligation to the theme's author. However, if you decide to redistribute the theme, the licence dictates that you must release the theme under the same licence, GPLv2."
+msgstr "El tema Graphene para WordPress, al igual que todos los demás temas que forman parte del repositorio oficial de WordPress, se publica de acuerdo con la GNU General Public License (GPL), versión 2. El texto completo de dicha licencia se incluye en el fichero <code>licence.txt</code>, dentro del directorio del tema. La publicación del tema de acuerdo con la mencionada licencia significa, entre otras cosas, que eres <em>libre de modificar el tema de cualquier forma y para cualquier propósito (incluido el comercial)</em> sin ninguna obligación para con el autor. Sin embargo, si decides redistribuir el tema, la licencia establece que debes publicarlo bajo la misma licencia, GPLv2."
+
+#: admin/faq.php:26
+msgid "But of course, the author would always appreciate <a href=\"themes.php?page=graphene_options\">donations</a> to support ongoing and future developments of the theme."
+msgstr "Por supuesto, el autor siempre agradecerá las <a href=\"themes.php?page=graphene_options\">donaciones</a> que apoyen los desarrollos presentes y futuros del tema."
+
+#: admin/faq.php:29
+msgid "If the theme is released under GPLv2, what is this Creative Commons licence in the theme's footer?"
+msgstr "Si el tema se publica bajo una licencia GPLv2, ¿qué significa la licencia Creative Commons que figura en el pie de página del tema?"
+
+#: admin/faq.php:30
+msgid "The Creative Commons licence is a popular licence nowadays that are used by a lot of web-based content authors to licence their work such that it protects their intellectual property but in the same time allows its free distribution. It is included with the theme simply to make it easy for the theme's users to make use of the licence for the content they publish. Theme users can remove it altogether via the theme's Options page should they wish not to use it."
+msgstr "La licencia Creative Commons es un recurso muy popular en la actualidad, y es utilizada por muchísimos autores de contenido web para licenciar sus obras, puesto que protege su propiedad intelectual al mismo tiempo que permite su libre distribución. Se incluye con el tema simplemente para que a los usuarios les sea fácil hacer uso de la licencia con el contenido que publican. Si los usuarios del tema no quieren utilizar dicha licencia, pueden eliminarla desde la página de opciones."
+
+#: admin/faq.php:31
+msgid "Put simply, <em>it is not the licence that is applied for the theme itself</em>, but just for the website's content should the theme user wants to use it."
+msgstr "Dicho en términos más simples, <em>no es la licencia con la que se distribuye el tema</em>, sino la que el usuario puede querer utilizar para distribuir el contenido del sitio web."
+
+#: admin/faq.php:34
+msgid "Is the theme compatible with this plugin or that plugin?"
+msgstr "¿Es compatible el tema con tal o cual plugin?"
+
+#: admin/faq.php:35
+msgid "I don't know. With so many plugins available for Wordpress, there's no way that I (or anybody else for that matter) can test for compatibility for all of them. Having said that, the theme is built with all the necessary Wordpress components included with it, so chances are most plugins will be compatible with the theme."
+msgstr "La verdad es que no lo sé. Con tantísimos plugins como existen para WordPress, no hay forma de que yo (o cualquier otra persona) pueda probar la compatibilidad con todos ellos. Dicho esto, el tema ha sido creado con todos los componentes de WordPress necesarios para que funcione, de forma que lo más probable es que la mayoría de los plugins sean compatibles con él."
+
+#: admin/faq.php:36
+msgid "My suggestion is to just install the plugin and try it. If you stumble into problem, ask for support from the plugin author first. If the plugin author says that it's a problems with the theme, you know where to find support."
+msgstr "En todo caso, sugiero que instales el plugin y lo pruebes. Si te encuentras con algún problema, solicita en primer lugar el soporte del autor del plugin. Si éste te dice que es un problema causado por el tema, ya sabes dónde puedes encontrar soporte."
+
+#: admin/options.php:42
+#: admin/uninstall.php:23
+msgid "Uninstall Graphene"
+msgstr "Desinstalar el tema Graphene"
+
+#: admin/options.php:43
+msgid "Please confirm that you would like to uninstall the Graphene theme. All of the theme's options in the database will be deleted."
+msgstr "Por favor, confirma que quieres desinstalar el tma Graphene. Todas las opciones del tema en la base de datos se borrarán."
+
+#: admin/options.php:44
+msgid "This action is not reversible."
+msgstr "Esta acción no es reversible."
+
+#: admin/options.php:48
+#: admin/options.php:146
+msgid "Uninstall Theme"
+msgstr "Desinstalar el tema"
+
+#: admin/options.php:60
+msgid "Graphene Theme Options"
+msgstr "Opciones del tema Graphene"
+
+#: admin/options.php:62
+msgid "These are the global settings for the theme. You may override some of the settings in individual posts and pages."
+msgstr "Estos son los parámetros globales de configuración para el tema. Puedes sobreescribir algunos en las páginas y entradas individuales."
+
+#: admin/options.php:66
+msgid "Settings saved."
+msgstr "Configuración guardada."
+
+#: admin/options.php:73
+msgid "General"
+msgstr "General"
+
+#: admin/options.php:74
+msgid "Display"
+msgstr "Visualización"
+
+#: admin/options.php:106
+msgid "Save Options"
+msgstr "Guardar opciones"
+
+#: admin/options.php:118
+msgid "Support the developer"
+msgstr "Apoya al desarrollador"
+
+#: admin/options.php:121
+msgid "Developing this awesome theme took a lot of effort and time, months and months of continuous voluntary unpaid work. If you like this theme or if you are using it for commercial websites, please consider a donation to the developer to help support future updates and development."
+msgstr "El desarrollo de este extraordinario tema ha supuesto un gran esfuerzo y mucho tiempo, meses y meses de trabajo voluntario, continuo y no retribuido. Si te gusta este tema o lo estás utilizando para sitios web comerciales, por favor considera la posibilidad de realizar una donación con la que contribuir a su desarrollo y a futuras actualizaciones."
+
+#: admin/options.php:136
+msgid "Uninstall theme"
+msgstr "Desinstalar el tema"
+
+#: admin/options.php:139
+msgid "<strong>Be careful!</strong> Uninstalling the theme will remove all of the theme's options from the database. Do this only if you decide not to use the theme anymore."
+msgstr "<strong>¡Ten mucho cuidado!</strong> Al desinstalar el tema se eliminarán de la base de datos todas las opciones relacionadas con él. Sólo debes desinstalar el tema si has decidido no volver a utilizarlo nunca más."
+
+#: admin/options.php:140
+msgid "If you just want to try another theme, there is no need to uninstall this theme. Simply activate the other theme in the Appearance > Themes admin page."
+msgstr "Si sólo quieres probar otro tema, no hay ninguna necesidad de desinstalar éste. Simplemente activa otro desde el menú <em>Apariencia</em> > <em>Temas</em>."
+
+#: admin/options.php:141
+msgid "Note that uninstalling this theme <strong>does not remove</strong> the theme's files. To delete the files after you have uninstalled this theme, go to Appearances > Themes and delete the theme from there."
+msgstr "Debes tener en cuenta que al desinstalar el tema <strong>no se eliminan</strong> los archivos de que consta. Para borrarlos, debes ir al menú <em>Apariencia</em> > <em>Temas</em>, y borrar desde allí el tema"
+
+#: admin/options.php:168
+msgid "Slider Options"
+msgstr "Opciones del carrusel"
+
+#: admin/options.php:174
+msgid "Category to show in slider"
+msgstr "Categoría para mostrar en el carrusel"
+
+#: admin/options.php:175
+msgid "All posts within the category selected here will be displayed on the slider. Usage example: create a new category \"Featured\" and assign all posts to be displayed on the slider to that category, and then select that category here."
+msgstr "Todas las entradas que pertenezcan a la categoría seleccionada se mostrarán en el carrusel. Ejemplo de uso: crea una nueva categoría, llamada \"Destacados\", asigna a dicha categoría todas las entradas que quieras mostrar en el carrusel, y a continuación selecciona la categoría."
+
+#: admin/options.php:179
+msgid "Show latest posts"
+msgstr "Mostrar últimas entradas"
+
+#: admin/options.php:180
+msgid "Show random posts"
+msgstr "Mostrar entradas al azar"
+
+#: admin/options.php:193
+msgid "Number of posts to display"
+msgstr "Número de entradas que deseas mostrar"
+
+#: admin/options.php:223
+msgid "Slider display style"
+msgstr "Estilo del carrusel"
+
+#: admin/options.php:227
+msgid "Thumbnail and excerpt"
+msgstr "Miniatura y resumen"
+
+#: admin/options.php:228
+msgid "Background image and excerpt"
+msgstr "Imagen de fondo y resumen"
+
+#: admin/options.php:229
+msgid "Full post content"
+msgstr "Contenido de la entrada completa"
+
+#: admin/options.php:235
+msgid "Slider height"
+msgstr "Altura del carrusel"
+
+#: admin/options.php:243
+msgid "Slider speed"
+msgstr "Velocidad del carrusel"
+
+#: admin/options.php:246
+msgid "milliseconds"
+msgstr "milisegundos"
+
+#: admin/options.php:247
+msgid "This is the duration that each slider item will be shown"
+msgstr "Este valor corresponde a la duración en milisegundos de cada uno de los elementos del carrusel"
+
+#: admin/options.php:252
+msgid "Move slider to bottom of page"
+msgstr "Desplazar el carrusel al final de la página"
+
+#: admin/options.php:258
+msgid "Disable slider"
+msgstr "Desactivar el carrusel"
+
+#: admin/options.php:271
+msgid "Front Page Options"
+msgstr "Opciones de la página principal"
+
+#: admin/options.php:277
+msgid "Front page posts categories"
+msgstr "Categorías de entradas de la página principal"
+
+#: admin/options.php:279
+msgid "Only posts that belong to the categories selected here will be displayed on the front page. Does not affect Static Front Page."
+msgstr "Sólo las entradas que pertenezcan a las categorías seleccionadas se mostrarán en la página principal. No afecta a las páginas de inicio estáticas."
+
+#: admin/options.php:284
+msgid "--Disabled--"
+msgstr "--Desactivado--"
+
+#: admin/options.php:292
+msgid "You may select multiple categories by holding down the CTRL key."
+msgstr "Puedes seleccionar múltiples categorías mediante la combinación CTRL+botón del ratón."
+
+#: admin/options.php:304
+msgid "Widget Area Options"
+msgstr "Opciones del área de widgets"
+
+#: admin/options.php:307
+msgid "Header widget area"
+msgstr "Cabecera"
+
+#: admin/options.php:308
+msgid "<strong>Important:</strong> This widget area is unstyled, as it is often used for advertisement banners, etc. If you enable it, make sure you style it to your needs using the Custom CSS option."
+msgstr "<strong>Importante:</strong> Esta área de widgets no tiene estilos, y normalmente se utiliza para anuncios y elementos similares. Si la activas, asegúrate de que le asignas los estilos adecuados, mediante la opción de CSS personalizados"
+
+#: admin/options.php:312
+msgid "Enable header widget area"
+msgstr "Activar el área de widgets de la cabecera"
+
+#: admin/options.php:321
+msgid "Alternate Widgets"
+msgstr "Widgets alternativos"
+
+#: admin/options.php:322
+msgid "You can enable the theme to show different widget areas in the front page than the rest of the website. If you enable this option, additional widget areas that will only be displayed on the front page will be added to the Widget settings page."
+msgstr "Puedes hacer que el tema muestre en la página de inicio otros widgets que los que aparecen en el resto del sitio web. Si activas esta opción, la página de configuración de los widgets mostrará varias áreas de widgets adicionales, que sólo estarán disponibles para la página de inicio."
+
+#: admin/options.php:325
+msgid "Enable alternate front page sidebar widget area"
+msgstr "Activar el área de widgets alternativa para la barra lateral de la página de inicio"
+
+#: admin/options.php:329
+msgid "Enable alternate front page footer widget area"
+msgstr "Activar el área de widgets alternativa para el pie de página de la página de inicio"
+
+#: admin/options.php:330
+msgid "You can also specify different column counts for the front page footer widget and the rest-of-site footer widget if you enable this option."
+msgstr "Si activas esta opción, también puedes especificar diferentes columnas para el pie de página de la página de inicio y el pie de página del resto del sitio web."
+
+#: admin/options.php:343
+msgid "Feed Options"
+msgstr "Opciones de las fuentes RSS"
+
+#: admin/options.php:348
+msgid "Hide feed icon"
+msgstr "Ocultar icono de fuentes RSS"
+
+#: admin/options.php:352
+msgid "Use custom feed URL"
+msgstr "Utilizar una URL personalizada para la fuente RSS"
+
+#: admin/options.php:355
+msgid "This custom feed URL will replace the default Wordpress RSS feed URL."
+msgstr "Esta URL personalizada para la fuente RSS sustituirá a la URL por defecto de la fuente RSS de WordPress"
+
+#: admin/options.php:367
+msgid "Social Sharing Buttons"
+msgstr "Botones de servicios de marcadores sociales"
+
+#: admin/options.php:372
+msgid "Show social sharing button"
+msgstr "Mostrar botón de marcadores sociales"
+
+#: admin/options.php:376
+msgid "Show in Pages as well?"
+msgstr "¿Mostrar también en las páginas?"
+
+#: admin/options.php:381
+msgid "Your social sharing button code"
+msgstr "Código para el botón de marcadores sociales"
+
+#: admin/options.php:382
+msgid "You can use codes from any popular social sharing sites, like Facebook, Digg, AddThis, etc."
+msgstr "Puedes utilizar códigos de cualquier servicio de marcadores sociales, como Facebook, Digg, AddThis, etc."
+
+#: admin/options.php:396
+msgid "Adsense Options"
+msgstr "Opciones de AdSense"
+
+#: admin/options.php:402
+msgid "Show Adsense advertising"
+msgstr "Mostrar anuncios de AdSense"
+
+#: admin/options.php:408
+msgid "Show ads on front page as well"
+msgstr "Mostrar anuncios también en la página de inicio"
+
+#: admin/options.php:414
+msgid "Your Adsense code"
+msgstr "Tu código de AdSense"
+
+#: admin/options.php:427
+msgid "Google Analytics Options"
+msgstr "Opciones de Google Analytics"
+
+#: admin/options.php:430
+msgid "<strong>Note:</strong> the theme now places the Google Analytics script in the <code>&lt;head&gt;</code> element to better support the new asynchronous Google Analytics script. Please make sure you update your script to use the new asynchronous script from Google Analytics."
+msgstr "<strong>Nota:</strong> el tema ubicará el script de Google Analytics en el elemento <code>&lt;head&gt;</code> del código HTML, para obtener un mejor resultado del nuevo script asíncrono de Google Analytics. Por favor, asegúrate de actualizar el script para poder hacer uso de la nueva funcionalidad de Google Analytics."
+
+#: admin/options.php:433
+msgid "Enable Google Analytics tracking"
+msgstr "Activar el seguimiento de Google Analytics"
+
+#: admin/options.php:437
+msgid "Google Analytics tracking code"
+msgstr "Código de seguimiento de Google Analytics"
+
+#: admin/options.php:438
+msgid "Make sure you include the full tracking code (including the <code>&lt;script&gt;</code> and <code>&lt;/script&gt;</code> tags) and not just the <code>UA-#######-#</code> code."
+msgstr "Debes asegurarte de que incluyes el código de seguimiento completo (incluyendo las etiquetas <code>&lt;script&gt;</code> y <code>&lt;/script&gt;</code>) y no sólo el código <code>UA-#######-#</code>."
+
+#: admin/options.php:451
+msgid "Footer Options"
+msgstr "Opciones de pie de página"
+
+#: admin/options.php:456
+msgid "Show Creative Commons logo"
+msgstr "Mostrar el logotipo de Creative Commons"
+
+#: admin/options.php:461
+msgid "Copyright text (html allowed)"
+msgstr "Texto de copyright (se permiten etiquetas HTML)"
+
+#: admin/options.php:462
+msgid "If this field is empty, the following default copyright text will be displayed:"
+msgstr "Si este campo está vacío, se mostrará por defecto el siguiente texto de copyright:"
+
+#: admin/options.php:468
+msgid "Do not show copyright info"
+msgstr "No mostrar información de copyright"
+
+#: admin/options.php:488
+msgid "Header Display Options"
+msgstr "Opciones de la cabecera"
+
+#: admin/options.php:494
+msgid "Use light-coloured header bars"
+msgstr "Utilizar barras de navegación de cabecera con colores claros"
+
+#: admin/options.php:500
+msgid "Link header image to front page"
+msgstr "Enlazar la imagen de cabecera a la página de inicio"
+
+#: admin/options.php:503
+msgid "Check this if you disable the header texts and want the header image to be linked to the front page."
+msgstr "Marca esta casilla si quieres desactivar los textos de cabecera y hacer que la imagen de cabecera enlace a la página de inicio."
+
+#: admin/options.php:508
+msgid "Disable Featured Image replacing header image"
+msgstr "Desactivar la posibilidad de que la imagen destacada sustituya a la imagen de cabecera"
+
+#: admin/options.php:511
+msgid "Check this to prevent the posts Featured Image replacing the header image regardless of the featured image dimension."
+msgstr "Marca esta casilla para impedir que la imagen destacada de una entrada sustituya a la imagen de cabecera, con independencia de las dimensiones de la imagen destacada."
+
+#: admin/options.php:516
+msgid "Use random header image"
+msgstr "Utilizar una imagen de cabecera al azar"
+
+#: admin/options.php:520
+msgid "Check this to show a random header image (random image taken from the available default header images)."
+msgstr "Marca esta casilla si queres mostrar una imagen de cabecera al azar (a partir de las imágenes de cabecera disponibles por defecto)."
+
+#: admin/options.php:521
+msgid "<strong>Note:</strong> only works on pages where a specific header image is not defined."
+msgstr "<strong>Nota:</strong> sólo funciona en páignas en las que no se haya definido una imagen de cabecera específica."
+
+#: admin/options.php:526
+msgid "Hide the top bar"
+msgstr "Ocultar la barra superior"
+
+#: admin/options.php:532
+msgid "Search box location"
+msgstr "Ubicación de la caja de búsqueda"
+
+#: admin/options.php:536
+msgid "Top bar"
+msgstr "Barra superior"
+
+#: admin/options.php:537
+msgid "Navigation bar"
+msgstr "Barra de navegación"
+
+#: admin/options.php:550
+msgid "Column Options"
+msgstr "Opciones de columnas"
+
+#: admin/options.php:556
+msgid "Column mode"
+msgstr "Modo de columnas"
+
+#: admin/options.php:606
+msgid "Posts Display Options"
+msgstr "Opciones de las entradas"
+
+#: admin/options.php:612
+msgid "Show excerpts in front page"
+msgstr "Mostrar resúmenes en la página de inicio"
+
+#: admin/options.php:618
+msgid "Hide post author"
+msgstr "Ocultar el autor"
+
+#: admin/options.php:624
+msgid "Post date display"
+msgstr "Mostrar fecha de la entrada"
+
+#: admin/options.php:628
+msgid "Hidden"
+msgstr "Oculto"
+
+#: admin/options.php:629
+msgid "As an icon (without the year)"
+msgstr "Como un icono (sin el año)"
+
+#: admin/options.php:630
+msgid "As an icon (including the year)"
+msgstr "Como un icono (con el año)"
+
+#: admin/options.php:631
+msgid "As inline text"
+msgstr "Como texto"
+
+#: admin/options.php:633
+msgid "Note: displaying date as inline text allows more space for the content area, especially useful for a three-column layout configuration."
+msgstr "Nota: mostrar la fecha como texto proprociona más espacio al área de contenido, lo cual resulta especialmente útil en la disposición de tres columnas."
+
+#: admin/options.php:638
+msgid "Hide post categories"
+msgstr "Ocultar la categoría"
+
+#: admin/options.php:644
+msgid "Hide post tags"
+msgstr "Ocultar las etiquetas"
+
+#: admin/options.php:650
+msgid "Hide post comment count"
+msgstr "Ocultar el número de comentarios"
+
+#: admin/options.php:651
+msgid "Only affects posts listing (such as the front page) and not single post view."
+msgstr "Sólo afecta a los listados de entradas (como el de la página de inicio) y no a las páginas de entradas individuales."
+
+#: admin/options.php:656
+msgid "Show post author's gravatar"
+msgstr "Mostrar el gravatar del autor"
+
+#: admin/options.php:660
+msgid "Show post author's info"
+msgstr "Mostrar la información del autor"
+
+#: admin/options.php:664
+msgid "Show More link for manual excerpts"
+msgstr "Mostrar el enlace \"Seguir leyendo\" para los resúmenes manuales"
+
+#: admin/options.php:677
+msgid "Comments Display Options"
+msgstr "Opciones de visualización de comentarios"
+
+#: admin/options.php:683
+msgid "Hide allowed tags in comment form"
+msgstr "Ocultar las etiquetas HTML permitidas en el formulario de comentarios"
+
+#: admin/options.php:696
+msgid "Text Style Options"
+msgstr "Opciones de los estilos del texto"
+
+#: admin/options.php:699
+msgid "Note that these are CSS properties, so any valid CSS values for each particular property can be used."
+msgstr "Ten en cuenta que estamos tratando de propiedades CSS; por tanto, puede utilizarse cualquier valor CSS válido para una propiedad determinada."
+
+#: admin/options.php:700
+msgid "Some example CSS properties values:"
+msgstr "Algunos ejemplos de valores para las propiedades CSS:"
+
+#: admin/options.php:703
+msgid "Text font:"
+msgstr "Fuente tipográfica del texto:"
+
+#: admin/options.php:707
+msgid "Text size and line height:"
+msgstr "Tamaño del texto y altura de línea:"
+
+#: admin/options.php:711
+msgid "Text weight:"
+msgstr "Grosor del texto:"
+
+#: admin/options.php:715
+msgid "Text style:"
+msgstr "Estilo del texto:"
+
+#: admin/options.php:719
+msgid "Text colour:"
+msgstr "Color del texto:"
+
+#: admin/options.php:723
+#: admin/options.php:864
+#: admin/options.php:893
+msgid "Leave field empty to use the default value."
+msgstr "Si quieres utilizar el valor por defecto, deja el campo en blanco."
+
+#: admin/options.php:725
+msgid "Header Text"
+msgstr "Texto de cabecera"
+
+#: admin/options.php:729
+msgid "Title text font"
+msgstr "Fuente tipográfica del texto del título"
+
+#: admin/options.php:735
+msgid "Title text size"
+msgstr "Tamaño del texto del título"
+
+#: admin/options.php:741
+msgid "Title text weight"
+msgstr "Grosor del texto del título"
+
+#: admin/options.php:747
+msgid "Title text line height"
+msgstr "Altura de línea del texto del título"
+
+#: admin/options.php:753
+msgid "Title text style"
+msgstr "Estilo del texto del título"
+
+#: admin/options.php:762
+msgid "Description text font"
+msgstr "Fuente tipográfica del texto de la descripción"
+
+#: admin/options.php:768
+msgid "Description text size"
+msgstr "Tamaño del texto para la descripción"
+
+#: admin/options.php:774
+msgid "Description text weight"
+msgstr "Grosor del texto de la descripción"
+
+#: admin/options.php:780
+msgid "Description text line height"
+msgstr "Altura de línea del texto de la descripción"
+
+#: admin/options.php:786
+msgid "Description text style"
+msgstr "Estilo del texto de la descripción"
+
+#: admin/options.php:792
+msgid "Content Text"
+msgstr "Texto del contenido"
+
+#: admin/options.php:796
+msgid "Text font"
+msgstr "Fuente tipográfica del texto"
+
+#: admin/options.php:802
+msgid "Text size"
+msgstr "Tamaño del texto"
+
+#: admin/options.php:808
+msgid "Text line height"
+msgstr "Altura de línea del texto"
+
+#: admin/options.php:814
+msgid "Text colour"
+msgstr "Color del texto"
+
+#: admin/options.php:820
+msgid "Link Text"
+msgstr "Texto del enlace"
+
+#: admin/options.php:824
+msgid "Link colour (normal state)"
+msgstr "Color del enlace (estado normal)"
+
+#: admin/options.php:830
+msgid "Link colour (visited state)"
+msgstr "Color del enlace (estado del enlace visitado)"
+
+#: admin/options.php:836
+msgid "Link colour (hover state)"
+msgstr "Color del enlace (estado al pasar el ratón por encima)"
+
+#: admin/options.php:842
+msgid "Text decoration (normal state)"
+msgstr "Subrayado del texto (estado normal)"
+
+#: admin/options.php:848
+msgid "Text decoration (hover state)"
+msgstr "Subrayado del texto (estado al pasar el ratón por encima)"
+
+#: admin/options.php:861
+msgid "Footer Widget Display Options"
+msgstr "Opciones de los widgets del pie de página"
+
+#: admin/options.php:869
+msgid "Number of columns to display"
+msgstr "Número de columnas que mostrar"
+
+#: admin/options.php:876
+msgid "Number of columns to display for front page footer widget"
+msgstr "Número de columnas para el pie de página de la página de inicio"
+
+#: admin/options.php:890
+msgid "Navigation Menu Display Options"
+msgstr "Opciones del menú de navegación"
+
+#: admin/options.php:898
+msgid "Dropdown menu item width"
+msgstr "Anchura de los ítems del menú desplegable"
+
+#: admin/options.php:911
+msgid "Miscellaneous Display Options"
+msgstr "Opciones de visualización misceláneas"
+
+#: admin/options.php:914
+msgid "Site title options"
+msgstr "Opciones del título del sitio"
+
+#: admin/options.php:915
+msgid "Use these tags to customise your own site title structure: <code>#site-name</code>, <code>#site-desc</code>, <code>#post-title</code>"
+msgstr "Utiliza estas etiquetas para personalizar tu propia estructura de títulos para el sitio: <code>#site-name</code>, <code>#site-desc</code>, <code>#post-title</code>"
+
+#: admin/options.php:919
+msgid "Custom front page site title"
+msgstr "Título del sitio personalizado para la página de inicio"
+
+#: admin/options.php:923
+msgid "Defaults to <code>#site-name &raquo; #site-desc</code>. The <code>#post-title</code> tag cannot be used here."
+msgstr "Por defecto, <code>#site-name &raquo; #site-desc</code>. La etiqueta <code>#post-title</code> no se puede utilizar aquí."
+
+#: admin/options.php:928
+msgid "Custom content pages site title"
+msgstr "Título del sitio personalizado para las páginas de contenido"
+
+#: admin/options.php:932
+msgid "Defaults to <code>#post-title &raquo; #site-name</code>."
+msgstr "Por defecto, <code>#post-title &raquo; #site-name</code>."
+
+#: admin/options.php:937
+msgid "Favicon options"
+msgstr "Opciones del favicono"
+
+#: admin/options.php:941
+msgid "Favicon URL"
+msgstr "URL del favicono"
+
+#: admin/options.php:945
+msgid "Simply enter the full URL to your favicon file here to enable favicon. Make sure you include the <code>http://</code> in front of the URL as well."
+msgstr "Escribe la URL completa para activar el favicono. Asegúrate de que incluyes <code>http://</code> al comienzo de la URL."
+
+#: admin/options.php:957
+msgid "Custom CSS"
+msgstr "CSS personalizado"
+
+#: admin/options.php:962
+msgid "Custom CSS styles"
+msgstr "Estilos CSS personalizados"
+
+#: admin/options.php:964
+msgid "You can enter your own CSS codes below to modify any other aspects of the theme's appearance that is not included in the options."
+msgstr "Puedes introducir a continuación tus propios estilos CSS, para modificar cualquier aspecto del tema que no esté incluido en las opciones."
+
+#: admin/uninstall.php:24
+#, php-format
+msgid "Theme uninstalled. Redirecting to %s"
+msgstr "Tema desinstalado. Redirigiendo a %s"
+
+#: admin/uninstall.php:32
+msgid "ERROR: You are not authorised to perform that operation"
+msgstr "ERROR: No tienes permiso para llevar a cabo esta operación"
+
+#: admin/user.php:7
+msgid "Graphene-specific User Profile Information"
+msgstr "Información del perfil de usuario específica del tema Graphene"
+
+#: admin/user.php:8
+msgid "The settings defined here are used only with the Graphene theme."
+msgstr "La configuración definida aquí sólo se utilizará en el tema Graphene."
+
+#: admin/user.php:12
+msgid "Author profile image URL"
+msgstr "URL de la imagen del perfil del autor"
+
+#: admin/user.php:13
+msgid "You can specify the image to be displayed as the author's profile image in the Author's page. If no URL is defined here, the author's <a href=\"http://www.gravatar.com\">Gravatar</a> will be used."
+msgstr "Puedes especificar la imagen que se mostrará en el perfil desde la página del autor. Si no especificas ninguna URL para la imagen, se utilizará el <a href=\"http://www.gravatar.com\">Gravatar</a> del autor."
+
+#: admin/user.php:17
+msgid "Please enter the URL to your profile image."
+msgstr "Por favor, escribe la URL para la imagen de tu perfil."
+
+#: admin/user.php:17
+msgid "<strong>Important: </strong>Image width must be less than or equal to <strong>150px</strong>."
+msgstr "<strong>Aviso importante: </strong>la imagen debe ser menor o igual a <strong>150 píxels</strong>."
+
+#~ msgid "Graphene Display"
+#~ msgstr "Opciones de visualización"
+
+#~ msgid ""
+#~ "Please enter only numerical value for the footer widget column count."
+#~ msgstr ""
+#~ "Por favor, escribe sólo valores numéricos para contar las columnas de "
+#~ "widgets del pie de página."
+
+#~ msgid ""
+#~ "Please enter only numerical value for the front page footer widget column "
+#~ "count."
+#~ msgstr ""
+#~ "Por favor, escribe sólo valores numéricos para contar las columnas del "
+#~ "pie de la página de inicio."
+
+#~ msgid ""
+#~ "Please enter only numerical value for the navigation menu dropdown item "
+#~ "width."
+#~ msgstr ""
+#~ "Por favor, escribe sólo valores numéricos para la anchura de los ítems "
+#~ "del menú de navegación."
+
+#~ msgid "Graphene Display Options"
+#~ msgstr "Opciones de visualización del tema Graphene"
+
+#~ msgid "ERROR:"
+#~ msgstr "ERROR:"
+
+#~ msgid "Sidebar"
+#~ msgstr "Barra lateral"
+
+#~ msgid "Sidebar Options"
+#~ msgstr "Opciones de la barra lateral"
+
+#~ msgid "Content sidebar location"
+#~ msgstr "Ubicación de la barra lateral de contenido"
+
+#~ msgid "Right"
+#~ msgstr "Derecha"
+
+#~ msgid "Left"
+#~ msgstr "Izquierda"
+
+#~ msgid "Hide sidebar"
+#~ msgstr "Ocultar barra lateral"
+
+#~ msgid ""
+#~ "Will cause all posts and pages to be displayed in a single-column layout."
+#~ msgstr ""
+#~ "Hará que todas las entradas y páginas se muestren en una disposición de "
+#~ "columna única"
+
+#~ msgid "Hide post date"
+#~ msgstr "Ocultar la fecha"
+
+#~ msgid "Show post year"
+#~ msgstr "Mostrar el año de la entrada"
+
+#~ msgid "Only works if the option \"Hide post date\" is disabled."
+#~ msgstr "Sólo funciona si la opción \"Ocultar la fecha\" está desactivada."
+
+#~ msgid ""
+#~ "<code>arial</code>, <code>tahoma</code>, <code>georgia</code>, "
+#~ "<code>'Trebuchet MS'</code>"
+#~ msgstr ""
+#~ "<code>arial</code>, <code>tahoma</code>, <code>georgia</code>, "
+#~ "<code>'Trebuchet MS'</code>"
+
+#~ msgid "<code>12px</code>, <code>12pt</code>, <code>12em</code>"
+#~ msgstr "<code>12px</code>, <code>12pt</code>, <code>12em</code>"
+
+#~ msgid ""
+#~ "<code>normal</code>, <code>bold</code>, <code>100</code>, <code>700</code>"
+#~ msgstr ""
+#~ "<code>normal</code>, <code>bold</code>, <code>100</code>, <code>700</code>"
+
+#~ msgid " <code>normal</code>, <code>italic</code>, <code>oblique</code>"
+#~ msgstr "<code>normal</code>, <code>italic</code>, <code>oblique</code>"
+
+#~ msgid ""
+#~ "<code>blue</code>, <code>navy</code>, <code>red</code>, <code>#ff0000</"
+#~ "code>"
+#~ msgstr ""
+#~ "<code>blue</code>, <code>navy</code>, <code>red</code>, <code>#ff0000</"
+#~ "code>"
+
+#~ msgid "Swap title order"
+#~ msgstr "Cambiar el orden de los títulos"
+
+#~ msgid ""
+#~ "If this is checked, the website title will be displayed first, followed "
+#~ "by the page title."
+#~ msgstr ""
+#~ "Si marcas esta casilla, el título del sitio web se mostrará en primer "
+#~ "lugar, seguido por el título de la página."
+
+#~ msgid "Update Settings"
+#~ msgstr "Actualizar configuración"
+
+#~ msgid "You must enter your Adsense code to enable Adsense advertising"
+#~ msgstr ""
+#~ "Si quieres activar los anuncios de AdSense, debes introducir el código "
+#~ "correspondiente a tu cuenta en dicho servicio."
+
+#~ msgid ""
+#~ "You must enter your AddThis button code to enable the AddThis social "
+#~ "sharing button"
+#~ msgstr ""
+#~ "Si quieres activar el botón de marcado social de AddThis, debes "
+#~ "introducir el código correspondiente a tu cuenta en dicho servicio."
+
+#~ msgid ""
+#~ "You must enter your Google Analytics tracking code to enable Google "
+#~ "Analytics tracking."
+#~ msgstr ""
+#~ "Si quieres activar el seguimiento de tu blog por parte de Google "
+#~ "Analytics, debes introducir el código de seguimiento correspondiente a tu "
+#~ "cuenta en dicho servicio."
+
+#~ msgid ""
+#~ "This setting only affects the slider if \"Show latest posts\" is selected "
+#~ "above."
+#~ msgstr ""
+#~ "Esta configuración sólo afecta al carrusel en caso de que se haya "
+#~ "seleccionado la opción \"Mostrar últimas entradas\"."
+
+#~ msgid "AddThis Options"
+#~ msgstr "Opciones de AddThis"
+
+#~ msgid "Your AddThis button code"
+#~ msgstr "Tu código del botón de AddThis"
+
+#~ msgid ""
+#~ "You can generate your button code from the <a href=\"http://www.addthis."
+#~ "com/\">AddThis website</a>."
+#~ msgstr ""
+#~ "Puedes generar el código para tus botones desde el sitio web de <a href="
+#~ "\"http://www.addthis.com/\">AddThis</a>."
+
+#~ msgid "by %s"
+#~ msgstr "por %s"
