@@ -86,7 +86,8 @@ class WP_Http {
 			'timeout' => apply_filters( 'http_request_timeout', 5),
 			'redirection' => apply_filters( 'http_request_redirection_count', 5),
 			'httpversion' => apply_filters( 'http_request_version', '1.0'),
-			'user-agent' => apply_filters( 'http_headers_useragent', 'WordPress/' . $wp_version . '; ' . get_bloginfo( 'url' )  ),
+			'user-agent' => apply_filters( 'http_headers_useragent', 'WordPress/' . $wp_version . '; ' . get_bloginfo( 'url' ) ),
+			'reject_unsafe_urls' => apply_filters( 'http_request_reject_unsafe_urls', false ),
 			'blocking' => true,
 			'headers' => array(),
 			'cookies' => array(),
@@ -95,9 +96,9 @@ class WP_Http {
 			'decompress' => true,
 			'sslverify' => true,
 			'stream' => false,
-			'filename' => null
+			'filename' => null,
+			'limit_response_size' => null,
 		);
-
 
 		// Pre-parse for the HEAD checks.
 		$args = wp_parse_args( $args );
@@ -109,15 +110,22 @@ class WP_Http {
 		$r = wp_parse_args( $args, $defaults );
 		$r = apply_filters( 'http_request_args', $r, $url );
 
-		// Certain classes decrement this, store a copy of the original value for loop purposes.
-		$r['_redirection'] = $r['redirection'];
+		// The transports decrement this, store a copy of the original value for loop purposes.
+		if ( ! isset( $r['_redirection'] ) )
+			$r['_redirection'] = $r['redirection'];
 
 		// Allow plugins to short-circuit the request
 		$pre = apply_filters( 'pre_http_request', false, $r, $url );
 		if ( false !== $pre )
 			return $pre;
 
-		$arrURL = parse_url( $url );
+		if ( function_exists( 'wp_kses_bad_protocol' ) ) {
+			if ( $r['reject_unsafe_urls'] )
+				$url = wp_http_validate_url( $url );
+			$url = wp_kses_bad_protocol( $url, array( 'http', 'https', 'ssl' ) );
+		}
+
+		$arrURL = @parse_url( $url );
 
 		if ( empty( $url ) || empty( $arrURL['scheme'] ) )
 			return new WP_Error('http_request_failed', __('A valid URL was not provided.'));
@@ -135,14 +143,14 @@ class WP_Http {
 		unset( $homeURL );
 
 		// If we are streaming to a file but no filename was given drop it in the WP temp dir
-		// and pick it's name using the basename of the $url
+		// and pick its name using the basename of the $url
 		if ( $r['stream']  && empty( $r['filename'] ) )
 			$r['filename'] = get_temp_dir() . basename( $url );
 
 		// Force some settings if we are streaming to a file and check for existence and perms of destination directory
 		if ( $r['stream'] ) {
 			$r['blocking'] = true;
-			if ( ! is_writable( dirname( $r['filename'] ) ) )
+			if ( ! wp_is_writable( dirname( $r['filename'] ) ) )
 				return new WP_Error( 'http_request_failed', __( 'Destination directory for file streaming does not exist or is not writable.' ) );
 		}
 
@@ -167,22 +175,21 @@ class WP_Http {
 		// Construct Cookie: header if any cookies are set
 		WP_Http::buildCookieHeader( $r );
 
-		if ( WP_Http_Encoding::is_available() )
-			$r['headers']['Accept-Encoding'] = WP_Http_Encoding::accept_encoding();
+		if ( ! isset( $r['headers']['Accept-Encoding'] ) ) {
+			if ( $encoding = WP_Http_Encoding::accept_encoding( $url, $r ) )
+				$r['headers']['Accept-Encoding'] = $encoding;
+		}
 
-		if ( empty($r['body']) ) {
-			$r['body'] = null;
-			// Some servers fail when sending content without the content-length header being set.
-			// Also, to fix another bug, we only send when doing POST and PUT and the content-length
-			// header isn't already set.
-			if ( ($r['method'] == 'POST' || $r['method'] == 'PUT') && ! isset( $r['headers']['Content-Length'] ) )
-				$r['headers']['Content-Length'] = 0;
-		} else {
+		if ( ( ! is_null( $r['body'] ) && '' != $r['body'] ) || 'POST' == $r['method'] || 'PUT' == $r['method'] ) {
 			if ( is_array( $r['body'] ) || is_object( $r['body'] ) ) {
 				$r['body'] = http_build_query( $r['body'], null, '&' );
-				$r['headers']['Content-Type'] = 'application/x-www-form-urlencoded; charset=' . get_option( 'blog_charset' );
-				$r['headers']['Content-Length'] = strlen( $r['body'] );
+
+				if ( ! isset( $r['headers']['Content-Type'] ) )
+					$r['headers']['Content-Type'] = 'application/x-www-form-urlencoded; charset=' . get_option( 'blog_charset' );
 			}
+
+			if ( '' === $r['body'] )
+				$r['body'] = null;
 
 			if ( ! isset( $r['headers']['Content-Length'] ) && ! isset( $r['headers']['content-length'] ) )
 				$r['headers']['Content-Length'] = strlen( $r['body'] );
@@ -200,7 +207,7 @@ class WP_Http {
 	 * @param array $args Request arguments
 	 * @param string $url URL to Request
 	 *
-	 * @return string|false Class name for the first transport that claims to support the request.  False if no transport claims to support the request.
+	 * @return string|bool Class name for the first transport that claims to support the request. False if no transport claims to support the request.
 	 */
 	public function _get_first_available_transport( $args, $url = null ) {
 		$request_order = array( 'curl', 'streams', 'fsockopen' );
@@ -222,7 +229,7 @@ class WP_Http {
 	/**
 	 * Dispatches a HTTP request to a supporting transport.
 	 *
-	 * Tests each transport in order to find a transport which matches the request arguements.
+	 * Tests each transport in order to find a transport which matches the request arguments.
 	 * Also caches the transport instance to be used later.
 	 *
 	 * The order for blocking requests is cURL, Streams, and finally Fsockopen.
@@ -253,7 +260,7 @@ class WP_Http {
 
 		$response = $transports[$class]->request( $url, $args );
 
-		do_action( 'http_api_debug', $response, 'response', $class );
+		do_action( 'http_api_debug', $response, 'response', $class, $args, $url );
 
 		if ( is_wp_error( $response ) )
 			return $response;
@@ -325,7 +332,7 @@ class WP_Http {
 	 * @param string $strResponse The full response string
 	 * @return array Array with 'headers' and 'body' keys.
 	 */
-	function processResponse($strResponse) {
+	public static function processResponse($strResponse) {
 		$res = explode("\r\n\r\n", $strResponse, 2);
 
 		return array('headers' => $res[0], 'body' => isset($res[1]) ? $res[1] : '');
@@ -345,7 +352,7 @@ class WP_Http {
 	 * @return array Processed string headers. If duplicate headers are encountered,
 	 * 					Then a numbered array is returned as the value of that header-key.
 	 */
-	function processHeaders($headers) {
+	public static function processHeaders($headers) {
 		// split headers, one per array element
 		if ( is_string($headers) ) {
 			// tolerate line terminator: CRLF = LF (RFC 2616 19.3)
@@ -382,18 +389,18 @@ class WP_Http {
 
 			list($key, $value) = explode(':', $tempheader, 2);
 
-			if ( !empty( $value ) ) {
-				$key = strtolower( $key );
-				if ( isset( $newheaders[$key] ) ) {
-					if ( !is_array($newheaders[$key]) )
-						$newheaders[$key] = array($newheaders[$key]);
-					$newheaders[$key][] = trim( $value );
-				} else {
-					$newheaders[$key] = trim( $value );
-				}
-				if ( 'set-cookie' == $key )
-					$cookies[] = new WP_Http_Cookie( $value );
+			$key = strtolower( $key );
+			$value = trim( $value );
+
+			if ( isset( $newheaders[ $key ] ) ) {
+				if ( ! is_array( $newheaders[ $key ] ) )
+					$newheaders[$key] = array( $newheaders[ $key ] );
+				$newheaders[ $key ][] = $value;
+			} else {
+				$newheaders[ $key ] = $value;
 			}
+			if ( 'set-cookie' == $key )
+				$cookies[] = new WP_Http_Cookie( $value );
 		}
 
 		return array('response' => $response, 'headers' => $newheaders, 'cookies' => $cookies);
@@ -412,7 +419,7 @@ class WP_Http {
 	 *
 	 * @param array $r Full array of args passed into ::request()
 	 */
-	function buildCookieHeader( &$r ) {
+	public static function buildCookieHeader( &$r ) {
 		if ( ! empty($r['cookies']) ) {
 			$cookies_header = '';
 			foreach ( (array) $r['cookies'] as $cookie ) {
@@ -428,6 +435,8 @@ class WP_Http {
 	 *
 	 * Based off the HTTP http_encoding_dechunk function. Does not support UTF-8. Does not support
 	 * returning footer headers. Shouldn't be too difficult to support it though.
+	 *
+	 * @link http://tools.ietf.org/html/rfc2616#section-19.4.6 Process for chunked decoding.
 	 *
 	 * @todo Add support for footer chunked headers.
 	 * @access public
@@ -532,10 +541,57 @@ class WP_Http {
 		if ( !empty($wildcard_regex) )
 			return !preg_match($wildcard_regex, $check['host']);
 		else
-			return !in_array( $check['host'], $accessible_hosts ); //Inverse logic, If its in the array, then we can't access it.
+			return !in_array( $check['host'], $accessible_hosts ); //Inverse logic, If it's in the array, then we can't access it.
 
+	}
 
+	static function make_absolute_url( $maybe_relative_path, $url ) {
+		if ( empty( $url ) )
+			return $maybe_relative_path;
 
+		// Check for a scheme
+		if ( false !== strpos( $maybe_relative_path, '://' ) )
+			return $maybe_relative_path;
+
+		if ( ! $url_parts = @parse_url( $url ) )
+			return $maybe_relative_path;
+
+		if ( ! $relative_url_parts = @parse_url( $maybe_relative_path ) )
+			return $maybe_relative_path;
+
+		$absolute_path = $url_parts['scheme'] . '://' . $url_parts['host'];
+		if ( isset( $url_parts['port'] ) )
+			$absolute_path .= ':' . $url_parts['port'];
+
+		// Start off with the Absolute URL path
+		$path = ! empty( $url_parts['path'] ) ? $url_parts['path'] : '/';
+
+		// If it's a root-relative path, then great
+		if ( ! empty( $relative_url_parts['path'] ) && '/' == $relative_url_parts['path'][0] ) {
+			$path = $relative_url_parts['path'];
+
+		// Else it's a relative path
+		} elseif ( ! empty( $relative_url_parts['path'] ) ) {
+			// Strip off any file components from the absolute path
+			$path = substr( $path, 0, strrpos( $path, '/' ) + 1 );
+
+			// Build the new path
+			$path .= $relative_url_parts['path'];
+
+			// Strip all /path/../ out of the path
+			while ( strpos( $path, '../' ) > 1 ) {
+				$path = preg_replace( '![^/]+/\.\./!', '', $path );
+			}
+
+			// Strip any final leading ../ from the path
+			$path = preg_replace( '!^/(\.\./)+!', '', $path );
+		}
+
+		// Add the Query string
+		if ( ! empty( $relative_url_parts['query'] ) )
+			$path .= '?' . $relative_url_parts['query'];
+
+		return $absolute_path . '/' . ltrim( $path, '/' );
 	}
 }
 
@@ -631,7 +687,7 @@ class WP_Http_Fsockopen {
 
 		$endDelay = time();
 
-		// If the delay is greater than the timeout then fsockopen should't be used, because it will
+		// If the delay is greater than the timeout then fsockopen shouldn't be used, because it will
 		// cause a long delay.
 		$elapseDelay = ($endDelay-$startDelay) > $r['timeout'];
 		if ( true === $elapseDelay )
@@ -686,6 +742,10 @@ class WP_Http_Fsockopen {
 
 		$strResponse = '';
 		$bodyStarted = false;
+		$keep_reading = true;
+		$block_size = 4096;
+		if ( isset( $r['limit_response_size'] ) )
+			$block_size = min( $block_size, $r['limit_response_size'] );
 
 		// If streaming to a file setup the file handle
 		if ( $r['stream'] ) {
@@ -696,30 +756,45 @@ class WP_Http_Fsockopen {
 			if ( ! $stream_handle )
 				return new WP_Error( 'http_request_failed', sprintf( __( 'Could not open handle for fopen() to %s' ), $r['filename'] ) );
 
-			while ( ! feof($handle) ) {
-				$block = fread( $handle, 4096 );
-				if ( $bodyStarted ) {
-					fwrite( $stream_handle, $block );
-				} else {
+			$bytes_written = 0;
+			while ( ! feof($handle) && $keep_reading ) {
+				$block = fread( $handle, $block_size );
+				if ( ! $bodyStarted ) {
 					$strResponse .= $block;
 					if ( strpos( $strResponse, "\r\n\r\n" ) ) {
 						$process = WP_Http::processResponse( $strResponse );
 						$bodyStarted = true;
-						fwrite( $stream_handle, $process['body'] );
+						$block = $process['body'];
 						unset( $strResponse );
 						$process['body'] = '';
 					}
 				}
+
+				if ( isset( $r['limit_response_size'] ) && ( $bytes_written + strlen( $block ) ) > $r['limit_response_size'] )
+					$block = substr( $block, 0, ( $r['limit_response_size'] - $bytes_written ) );
+
+				$bytes_written += fwrite( $stream_handle, $block );
+
+				$keep_reading = !isset( $r['limit_response_size'] ) || $bytes_written < $r['limit_response_size'];
 			}
 
 			fclose( $stream_handle );
 
 		} else {
-			while ( ! feof($handle) )
-				$strResponse .= fread( $handle, 4096 );
+			$header_length = 0;
+			while ( ! feof( $handle ) && $keep_reading ) {
+				$block = fread( $handle, $block_size );
+				$strResponse .= $block;
+				if ( ! $bodyStarted && strpos( $strResponse, "\r\n\r\n" ) ) {
+					$header_length = strpos( $strResponse, "\r\n\r\n" ) + 4;
+					$bodyStarted = true;
+				}
+				$keep_reading = ( ! $bodyStarted || !isset( $r['limit_response_size'] ) || strlen( $strResponse ) < ( $header_length + $r['limit_response_size'] ) );
+			}
 
 			$process = WP_Http::processResponse( $strResponse );
 			unset( $strResponse );
+
 		}
 
 		fclose( $handle );
@@ -732,7 +807,7 @@ class WP_Http_Fsockopen {
 		// If location is found, then assume redirect and redirect to location.
 		if ( isset($arrHeaders['headers']['location']) && 0 !== $r['_redirection'] ) {
 			if ( $r['redirection']-- > 0 ) {
-				return $this->request($arrHeaders['headers']['location'], $r);
+				return wp_remote_request( WP_HTTP::make_absolute_url( $arrHeaders['headers']['location'], $url ), $r);
 			} else {
 				return new WP_Error('http_request_failed', __('Too many redirects.'));
 			}
@@ -745,6 +820,9 @@ class WP_Http_Fsockopen {
 		if ( true === $r['decompress'] && true === WP_Http_Encoding::should_decode($arrHeaders['headers']) )
 			$process['body'] = WP_Http_Encoding::decompress( $process['body'] );
 
+		if ( isset( $r['limit_response_size'] ) && strlen( $process['body'] ) > $r['limit_response_size'] )
+			$process['body'] = substr( $process['body'], 0, $r['limit_response_size'] );
+
 		return array( 'headers' => $arrHeaders['headers'], 'body' => $process['body'], 'response' => $arrHeaders['response'], 'cookies' => $arrHeaders['cookies'], 'filename' => $r['filename'] );
 	}
 
@@ -755,11 +833,11 @@ class WP_Http_Fsockopen {
 	 * @static
 	 * @return boolean False means this class can not be used, true means it can.
 	 */
-	function test( $args = array() ) {
+	public static function test( $args = array() ) {
 		if ( ! function_exists( 'fsockopen' ) )
 			return false;
 
-		if ( false !== ($option = get_option( 'disable_fsockopen' )) && time()-$option < 43200 ) // 12 hours
+		if ( false !== ( $option = get_option( 'disable_fsockopen' ) ) && time() - $option < 12 * HOUR_IN_SECONDS )
 			return false;
 
 		$is_ssl = isset( $args['ssl'] ) && $args['ssl'];
@@ -842,7 +920,8 @@ class WP_Http_Streams {
 			array(
 				'method' => strtoupper($r['method']),
 				'user_agent' => $r['user-agent'],
-				'max_redirects' => $r['redirection'] + 1, // See #11557
+				'max_redirects' => 0, // Follow no redirects
+				'follow_redirects' => false,
 				'protocol_version' => (float) $r['httpversion'],
 				'header' => $strHeaders,
 				'ignore_errors' => true, // Return non-200 requests.
@@ -865,7 +944,7 @@ class WP_Http_Streams {
 				$arrContext['http']['header'] .= $proxy->authentication_header() . "\r\n";
 		}
 
-		if ( ! empty($r['body'] ) )
+		if ( ! is_null( $r['body'] ) )
 			$arrContext['http']['content'] = $r['body'];
 
 		$context = stream_context_create($arrContext);
@@ -888,6 +967,7 @@ class WP_Http_Streams {
 			return array( 'headers' => array(), 'body' => '', 'response' => array('code' => false, 'message' => false), 'cookies' => array() );
 		}
 
+		$max_bytes = isset( $r['limit_response_size'] ) ? intval( $r['limit_response_size'] ) : -1;
 		if ( $r['stream'] ) {
 			if ( ! WP_DEBUG )
 				$stream_handle = @fopen( $r['filename'], 'w+' );
@@ -897,12 +977,12 @@ class WP_Http_Streams {
 			if ( ! $stream_handle )
 				return new WP_Error( 'http_request_failed', sprintf( __( 'Could not open handle for fopen() to %s' ), $r['filename'] ) );
 
-			stream_copy_to_stream( $handle, $stream_handle );
+			stream_copy_to_stream( $handle, $stream_handle, $max_bytes );
 
 			fclose( $stream_handle );
 			$strResponse = '';
 		} else {
-			$strResponse = stream_get_contents( $handle );
+			$strResponse = stream_get_contents( $handle, $max_bytes );
 		}
 
 		$meta = stream_get_meta_data( $handle );
@@ -915,10 +995,13 @@ class WP_Http_Streams {
 		else
 			$processedHeaders = WP_Http::processHeaders($meta['wrapper_data']);
 
-		// Streams does not provide an error code which we can use to see why the request stream stoped.
-		// We can however test to see if a location header is present and return based on that.
-		if ( isset($processedHeaders['headers']['location']) && 0 !== $args['_redirection'] )
-			return new WP_Error('http_request_failed', __('Too many redirects.'));
+		if ( ! empty( $processedHeaders['headers']['location'] ) && 0 !== $r['_redirection'] ) { // _redirection: The requested number of redirections
+			if ( $r['redirection']-- > 0 ) {
+				return wp_remote_request( WP_HTTP::make_absolute_url( $processedHeaders['headers']['location'], $url ), $r );
+			} else {
+				return new WP_Error( 'http_request_failed', __( 'Too many redirects.' ) );
+			}
+		}
 
 		if ( ! empty( $strResponse ) && isset( $processedHeaders['headers']['transfer-encoding'] ) && 'chunked' == $processedHeaders['headers']['transfer-encoding'] )
 			$strResponse = WP_Http::chunkTransferDecode($strResponse);
@@ -938,7 +1021,7 @@ class WP_Http_Streams {
 	 *
 	 * @return boolean False means this class can not be used, true means it can.
 	 */
-	function test( $args = array() ) {
+	public static function test( $args = array() ) {
 		if ( ! function_exists( 'fopen' ) )
 			return false;
 
@@ -966,13 +1049,40 @@ class WP_Http_Streams {
 class WP_Http_Curl {
 
 	/**
-	 * Temporary header storage for use with streaming to a file.
+	 * Temporary header storage for during requests.
 	 *
 	 * @since 3.2.0
 	 * @access private
 	 * @var string
 	 */
 	private $headers = '';
+
+	/**
+	 * Temporary body storage for during requests.
+	 *
+	 * @since 3.6.0
+	 * @access private
+	 * @var string
+	 */
+	private $body = '';
+
+	/**
+	 * The maximum amount of data to recieve from the remote server
+	 *
+	 * @since 3.6.0
+	 * @access private
+	 * @var int
+	 */
+	private $max_body_length = false;
+
+	/**
+	 * The file resource used for streaming to file.
+	 *
+	 * @since 3.6.0
+	 * @access private
+	 * @var resource
+	 */
+	private $stream_handle = false;
 
 	/**
 	 * Send a HTTP request to a URI using cURL extension.
@@ -1022,16 +1132,15 @@ class WP_Http_Curl {
 			}
 		}
 
-		$is_local = isset($args['local']) && $args['local'];
-		$ssl_verify = isset($args['sslverify']) && $args['sslverify'];
+		$is_local = isset($r['local']) && $r['local'];
+		$ssl_verify = isset($r['sslverify']) && $r['sslverify'];
 		if ( $is_local )
 			$ssl_verify = apply_filters('https_local_ssl_verify', $ssl_verify);
 		elseif ( ! $is_local )
 			$ssl_verify = apply_filters('https_ssl_verify', $ssl_verify);
 
-
-		// CURLOPT_TIMEOUT and CURLOPT_CONNECTTIMEOUT expect integers.  Have to use ceil since
-		// a value of 0 will allow an ulimited timeout.
+		// CURLOPT_TIMEOUT and CURLOPT_CONNECTTIMEOUT expect integers. Have to use ceil since
+		// a value of 0 will allow an unlimited timeout.
 		$timeout = (int) ceil( $r['timeout'] );
 		curl_setopt( $handle, CURLOPT_CONNECTTIMEOUT, $timeout );
 		curl_setopt( $handle, CURLOPT_TIMEOUT, $timeout );
@@ -1041,7 +1150,11 @@ class WP_Http_Curl {
 		curl_setopt( $handle, CURLOPT_SSL_VERIFYHOST, ( $ssl_verify === true ) ? 2 : false );
 		curl_setopt( $handle, CURLOPT_SSL_VERIFYPEER, $ssl_verify );
 		curl_setopt( $handle, CURLOPT_USERAGENT, $r['user-agent'] );
-		curl_setopt( $handle, CURLOPT_MAXREDIRS, $r['redirection'] );
+		// The option doesn't work with safe mode or when open_basedir is set, and there's a
+		// bug #17490 with redirected POST requests, so handle redirections outside Curl.
+		curl_setopt( $handle, CURLOPT_FOLLOWLOCATION, false );
+		if ( defined( 'CURLOPT_PROTOCOLS' ) ) // PHP 5.2.10 / cURL 7.19.4
+			curl_setopt( $handle, CURLOPT_PROTOCOLS, CURLPROTO_HTTP | CURLPROTO_HTTPS );
 
 		switch ( $r['method'] ) {
 			case 'HEAD':
@@ -1055,27 +1168,36 @@ class WP_Http_Curl {
 				curl_setopt( $handle, CURLOPT_CUSTOMREQUEST, 'PUT' );
 				curl_setopt( $handle, CURLOPT_POSTFIELDS, $r['body'] );
 				break;
+			default:
+				curl_setopt( $handle, CURLOPT_CUSTOMREQUEST, $r['method'] );
+				if ( ! is_null( $r['body'] ) )
+					curl_setopt( $handle, CURLOPT_POSTFIELDS, $r['body'] );
+				break;
 		}
 
-		if ( true === $r['blocking'] )
-			curl_setopt( $handle, CURLOPT_HEADERFUNCTION, array( &$this, 'stream_headers' ) );
+		if ( true === $r['blocking'] ) {
+			curl_setopt( $handle, CURLOPT_HEADERFUNCTION, array( $this, 'stream_headers' ) );
+			curl_setopt( $handle, CURLOPT_WRITEFUNCTION, array( $this, 'stream_body' ) );
+		}
 
 		curl_setopt( $handle, CURLOPT_HEADER, false );
+
+		if ( isset( $r['limit_response_size'] ) )
+			$this->max_body_length = intval( $r['limit_response_size'] );
+		else
+			$this->max_body_length = false;
 
 		// If streaming to a file open a file handle, and setup our curl streaming handler
 		if ( $r['stream'] ) {
 			if ( ! WP_DEBUG )
-				$stream_handle = @fopen( $r['filename'], 'w+' );
+				$this->stream_handle = @fopen( $r['filename'], 'w+' );
 			else
-				$stream_handle = fopen( $r['filename'], 'w+' );
-			if ( ! $stream_handle )
+				$this->stream_handle = fopen( $r['filename'], 'w+' );
+			if ( ! $this->stream_handle )
 				return new WP_Error( 'http_request_failed', sprintf( __( 'Could not open handle for fopen() to %s' ), $r['filename'] ) );
-			curl_setopt( $handle, CURLOPT_FILE, $stream_handle );
+		} else {
+			$this->stream_handle = false;
 		}
-
-		// The option doesn't work with safe mode or when open_basedir is set.
-		if ( !ini_get('safe_mode') && !ini_get('open_basedir') && 0 !== $r['_redirection'] )
-			curl_setopt( $handle, CURLOPT_FOLLOWLOCATION, true );
 
 		if ( !empty( $r['headers'] ) ) {
 			// cURL expects full header strings in each element
@@ -1098,26 +1220,38 @@ class WP_Http_Curl {
 		// We don't need to return the body, so don't. Just execute request and return.
 		if ( ! $r['blocking'] ) {
 			curl_exec( $handle );
+
+			if ( $curl_error = curl_error( $handle ) ) {
+				curl_close( $handle );
+				return new WP_Error( 'http_request_failed', $curl_error );
+			}
+			if ( in_array( curl_getinfo( $handle, CURLINFO_HTTP_CODE ), array( 301, 302 ) ) ) {
+				curl_close( $handle );
+				return new WP_Error( 'http_request_failed', __( 'Too many redirects.' ) );
+			}
+
 			curl_close( $handle );
 			return array( 'headers' => array(), 'body' => '', 'response' => array('code' => false, 'message' => false), 'cookies' => array() );
 		}
 
 		$theResponse = curl_exec( $handle );
-		$theBody = '';
 		$theHeaders = WP_Http::processHeaders( $this->headers );
+		$theBody = $this->body;
 
-		if ( strlen($theResponse) > 0 && ! is_bool( $theResponse ) ) // is_bool: when using $args['stream'], curl_exec will return (bool)true
-			$theBody = $theResponse;
+		$this->headers = '';
+		$this->body = '';
 
-		// If no response, and It's not a HEAD request with valid headers returned
-		if ( 0 == strlen($theResponse) && ('HEAD' != $args['method'] || empty($this->headers)) ) {
-			if ( $curl_error = curl_error($handle) )
-				return new WP_Error('http_request_failed', $curl_error);
-			if ( in_array( curl_getinfo( $handle, CURLINFO_HTTP_CODE ), array(301, 302) ) )
-				return new WP_Error('http_request_failed', __('Too many redirects.'));
+		// If no response
+		if ( 0 == strlen( $theBody ) && empty( $theHeaders['headers'] ) ) {
+			if ( $curl_error = curl_error( $handle ) ) {
+				curl_close( $handle );
+				return new WP_Error( 'http_request_failed', $curl_error );
+			}
+			if ( in_array( curl_getinfo( $handle, CURLINFO_HTTP_CODE ), array( 301, 302 ) ) ) {
+				curl_close( $handle );
+				return new WP_Error( 'http_request_failed', __( 'Too many redirects.' ) );
+			}
 		}
-
-		unset( $this->headers );
 
 		$response = array();
 		$response['code'] = curl_getinfo( $handle, CURLINFO_HTTP_CODE );
@@ -1126,12 +1260,12 @@ class WP_Http_Curl {
 		curl_close( $handle );
 
 		if ( $r['stream'] )
-			fclose( $stream_handle );
+			fclose( $this->stream_handle );
 
 		// See #11305 - When running under safe mode, redirection is disabled above. Handle it manually.
-		if ( ! empty( $theHeaders['headers']['location'] ) && ( ini_get( 'safe_mode' ) || ini_get( 'open_basedir' ) ) && 0 !== $r['_redirection'] ) {
+		if ( ! empty( $theHeaders['headers']['location'] ) && 0 !== $r['_redirection'] ) { // _redirection: The requested number of redirections
 			if ( $r['redirection']-- > 0 ) {
-				return $this->request( $theHeaders['headers']['location'], $r );
+				return wp_remote_request( WP_HTTP::make_absolute_url( $theHeaders['headers']['location'], $url ), $r );
 			} else {
 				return new WP_Error( 'http_request_failed', __( 'Too many redirects.' ) );
 			}
@@ -1158,6 +1292,28 @@ class WP_Http_Curl {
 	}
 
 	/**
+	 * Grab the body of the cURL request
+	 *
+	 * The contents of the document are passed in chunks, so we append to the $body property for temporary storage.
+	 * Returning a length shorter than the length of $data passed in will cause cURL to abort the request as "completed"
+	 *
+	 * @since 3.6.0
+	 * @access private
+	 * @return int
+	 */
+	private function stream_body( $handle, $data ) {
+		if ( $this->max_body_length && ( strlen( $this->body ) + strlen( $data ) ) > $this->max_body_length )
+			$data = substr( $data, 0, ( $this->max_body_length - strlen( $this->body ) ) );
+
+		if ( $this->stream_handle )
+			fwrite( $this->stream_handle, $data );
+		else
+			$this->body .= $data;
+
+		return strlen( $data );
+	}
+
+	/**
 	 * Whether this class can be used for retrieving an URL.
 	 *
 	 * @static
@@ -1165,7 +1321,7 @@ class WP_Http_Curl {
 	 *
 	 * @return boolean False means this class can not be used, true means it can.
 	 */
-	function test( $args = array() ) {
+	public static function test( $args = array() ) {
 		if ( ! function_exists( 'curl_init' ) || ! function_exists( 'curl_exec' ) )
 			return false;
 
@@ -1343,6 +1499,10 @@ class WP_HTTP_Proxy {
 
 		$home = parse_url( get_option('siteurl') );
 
+		$result = apply_filters( 'pre_http_send_through_proxy', null, $uri, $check, $home );
+		if ( ! is_null( $result ) )
+			return $result;
+
 		if ( $check['host'] == 'localhost' || $check['host'] == $home['host'] )
 			return false;
 
@@ -1493,11 +1653,11 @@ class WP_Http_Cookie {
 	 * @since 2.8.0
 	 *
 	 * @param string $url URL you intend to send this cookie to
-	 * @return boolean TRUE if allowed, FALSE otherwise.
+	 * @return boolean true if allowed, false otherwise.
 	 */
 	function test( $url ) {
 		// Expires - if expired then nothing else matters
-		if ( time() > $this->expires )
+		if ( isset( $this->expires ) && time() > $this->expires )
 			return false;
 
 		// Get details on the URL we're thinking about sending to
@@ -1537,10 +1697,10 @@ class WP_Http_Cookie {
 	 * @return string Header encoded cookie name and value.
 	 */
 	function getHeaderValue() {
-		if ( empty( $this->name ) || empty( $this->value ) )
+		if ( ! isset( $this->name ) || ! isset( $this->value ) )
 			return '';
 
-		return $this->name . '=' . urlencode( $this->value );
+		return $this->name . '=' . apply_filters( 'wp_http_cookie_value', $this->value, $this->name );
 	}
 
 	/**
@@ -1579,7 +1739,7 @@ class WP_Http_Encoding {
 	 * @param string $supports Optional, not used. When implemented it will choose the right compression based on what the server supports.
 	 * @return string|bool False on failure.
 	 */
-	function compress( $raw, $level = 9, $supports = null ) {
+	public static function compress( $raw, $level = 9, $supports = null ) {
 		return gzdeflate( $raw, $level );
 	}
 
@@ -1597,7 +1757,7 @@ class WP_Http_Encoding {
 	 * @param int $length The optional length of the compressed data.
 	 * @return string|bool False on failure.
 	 */
-	function decompress( $compressed, $length = null ) {
+	public static function decompress( $compressed, $length = null ) {
 
 		if ( empty($compressed) )
 			return $compressed;
@@ -1624,18 +1784,26 @@ class WP_Http_Encoding {
 	/**
 	 * Decompression of deflated string while staying compatible with the majority of servers.
 	 *
-	 * Certain Servers will return deflated data with headers which PHP's gziniflate()
-	 * function cannot handle out of the box. The following function lifted from
-	 * http://au2.php.net/manual/en/function.gzinflate.php#77336 will attempt to deflate
-	 * the various return forms used.
+	 * Certain Servers will return deflated data with headers which PHP's gzinflate()
+	 * function cannot handle out of the box. The following function has been created from
+	 * various snippets on the gzinflate() PHP documentation.
+	 *
+	 * Warning: Magic numbers within. Due to the potential different formats that the compressed
+	 * data may be returned in, some "magic offsets" are needed to ensure proper decompression
+	 * takes place. For a simple progmatic way to determine the magic offset in use, see:
+	 * http://core.trac.wordpress.org/ticket/18273
 	 *
 	 * @since 2.8.1
+	 * @link http://core.trac.wordpress.org/ticket/18273
+	 * @link http://au2.php.net/manual/en/function.gzinflate.php#70875
 	 * @link http://au2.php.net/manual/en/function.gzinflate.php#77336
 	 *
 	 * @param string $gzData String to decompress.
 	 * @return string|bool False on failure.
 	 */
-	function compatible_gzinflate($gzData) {
+	public static function compatible_gzinflate($gzData) {
+
+		// Compressed data might contain a full header, if so strip it for gzinflate()
 		if ( substr($gzData, 0, 3) == "\x1f\x8b\x08" ) {
 			$i = 10;
 			$flg = ord( substr($gzData, 3, 1) );
@@ -1651,10 +1819,17 @@ class WP_Http_Encoding {
 				if ( $flg & 2 )
 					$i = $i + 2;
 			}
-			return gzinflate( substr($gzData, $i, -8) );
-		} else {
-			return false;
+			$decompressed = @gzinflate( substr($gzData, $i, -8) );
+			if ( false !== $decompressed )
+				return $decompressed;
 		}
+
+		// Compressed data from java.util.zip.Deflater amongst others.
+		$decompressed = @gzinflate( substr($gzData, 2) );
+		if ( false !== $decompressed )
+			return $decompressed;
+
+		return false;
 	}
 
 	/**
@@ -1664,28 +1839,41 @@ class WP_Http_Encoding {
 	 *
 	 * @return string Types of encoding to accept.
 	 */
-	function accept_encoding() {
+	public static function accept_encoding( $url, $args ) {
 		$type = array();
-		if ( function_exists( 'gzinflate' ) )
-			$type[] = 'deflate;q=1.0';
+		$compression_enabled = WP_Http_Encoding::is_available();
 
-		if ( function_exists( 'gzuncompress' ) )
-			$type[] = 'compress;q=0.5';
+		if ( ! $args['decompress'] ) // decompression specifically disabled
+			$compression_enabled = false;
+		elseif ( $args['stream'] ) // disable when streaming to file
+			$compression_enabled = false;
+		elseif ( isset( $args['limit_response_size'] ) ) // If only partial content is being requested, we won't be able to decompress it
+			$compression_enabled = false;
 
-		if ( function_exists( 'gzdecode' ) )
-			$type[] = 'gzip;q=0.5';
+		if ( $compression_enabled ) {
+			if ( function_exists( 'gzinflate' ) )
+				$type[] = 'deflate;q=1.0';
+
+			if ( function_exists( 'gzuncompress' ) )
+				$type[] = 'compress;q=0.5';
+
+			if ( function_exists( 'gzdecode' ) )
+				$type[] = 'gzip;q=0.5';
+		}
+
+		$type = apply_filters( 'wp_http_accept_encoding', $type, $url, $args );
 
 		return implode(', ', $type);
 	}
 
 	/**
-	 * What enconding the content used when it was compressed to send in the headers.
+	 * What encoding the content used when it was compressed to send in the headers.
 	 *
 	 * @since 2.8
 	 *
 	 * @return string Content-Encoding string to send in the header.
 	 */
-	function content_encoding() {
+	public static function content_encoding() {
 		return 'deflate';
 	}
 
@@ -1697,7 +1885,7 @@ class WP_Http_Encoding {
 	 * @param array|string $headers All of the available headers.
 	 * @return bool
 	 */
-	function should_decode($headers) {
+	public static function should_decode($headers) {
 		if ( is_array( $headers ) ) {
 			if ( array_key_exists('content-encoding', $headers) && ! empty( $headers['content-encoding'] ) )
 				return true;
@@ -1719,7 +1907,7 @@ class WP_Http_Encoding {
 	 *
 	 * @return bool
 	 */
-	function is_available() {
+	public static function is_available() {
 		return ( function_exists('gzuncompress') || function_exists('gzdeflate') || function_exists('gzinflate') );
 	}
 }

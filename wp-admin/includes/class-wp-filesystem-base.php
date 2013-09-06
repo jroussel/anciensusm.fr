@@ -153,12 +153,12 @@ class WP_Filesystem_Base {
 				if ( defined($constant) && $folder === $dir )
 					return trailingslashit(constant($constant));
 		} elseif ( 'direct' == $this->method ) {
-			$folder = str_replace('\\', '/', $folder); //Windows path sanitiation
+			$folder = str_replace('\\', '/', $folder); //Windows path sanitisation
 			return trailingslashit($folder);
 		}
 
-		$folder = preg_replace('|^([a-z]{1}):|i', '', $folder); //Strip out windows driveletter if its there.
-		$folder = str_replace('\\', '/', $folder); //Windows path sanitiation
+		$folder = preg_replace('|^([a-z]{1}):|i', '', $folder); //Strip out windows drive letter if it's there.
+		$folder = str_replace('\\', '/', $folder); //Windows path sanitisation
 
 		if ( isset($this->cache[ $folder ] ) )
 			return $this->cache[ $folder ];
@@ -193,16 +193,17 @@ class WP_Filesystem_Base {
 		$folder = untrailingslashit($folder);
 
 		$folder_parts = explode('/', $folder);
-		$last_path = $folder_parts[ count($folder_parts) - 1 ];
+		$last_index = array_pop( array_keys( $folder_parts ) );
+		$last_path = $folder_parts[ $last_index ];
 
 		$files = $this->dirlist( $base );
 
-		foreach ( $folder_parts as $key ) {
-			if ( $key == $last_path )
+		foreach ( $folder_parts as $index => $key ) {
+			if ( $index == $last_index )
 				continue; //We want this to be caught by the next code block.
 
 			//Working from /home/ to /user/ to /wordpress/ see if that file exists within the current folder,
-			// If its found, change into it and follow through looking for it.
+			// If it's found, change into it and follow through looking for it.
 			// If it cant find WordPress down that route, it'll continue onto the next folder level, and see if that matches, and so on.
 			// If it reaches the end, and still cant find it, it'll return false for the entire function.
 			if ( isset($files[ $key ]) ){
@@ -210,7 +211,9 @@ class WP_Filesystem_Base {
 				$newdir = trailingslashit(path_join($base, $key));
 				if ( $this->verbose )
 					printf( __('Changing to %s') . '<br/>', $newdir );
-				if ( $ret = $this->search_for_folder( $folder, $newdir, $loop) )
+				// only search for the remaining path tokens in the directory, not the full path again
+				$newfolder = implode( '/', array_slice( $folder_parts, $index + 1 ) );
+				if ( $ret = $this->search_for_folder( $newfolder, $newdir, $loop) )
 					return $ret;
 			}
 		}
@@ -223,7 +226,7 @@ class WP_Filesystem_Base {
 		}
 		if ( $loop )
 			return false; //Prevent this function from looping again.
-		//As an extra last resort, Change back to / if the folder wasnt found. This comes into effect when the CWD is /home/user/ but WP is at /var/www/.... mainly dedicated setups.
+		//As an extra last resort, Change back to / if the folder wasn't found. This comes into effect when the CWD is /home/user/ but WP is at /var/www/.... mainly dedicated setups.
 		return $this->search_for_folder($folder, '/', true);
 
 	}
@@ -238,7 +241,7 @@ class WP_Filesystem_Base {
 	 * @access public
 	 *
 	 * @param string $file string filename
-	 * @return int octal representation of permissions
+	 * @return string *nix style representation of permissions
 	 */
 	function gethchmod($file){
 		$perms = $this->getchmod($file);
@@ -304,14 +307,14 @@ class WP_Filesystem_Base {
 		   if ($key = array_search($attarray[$i], $legal))
 			   $realmode .= $legal[$key];
 
-		$mode = str_pad($realmode, 9, '-');
+		$mode = str_pad($realmode, 10, '-', STR_PAD_LEFT);
 		$trans = array('-'=>'0', 'r'=>'4', 'w'=>'2', 'x'=>'1');
 		$mode = strtr($mode,$trans);
 
-		$newmode = '';
-		$newmode .= $mode[0] + $mode[1] + $mode[2];
-		$newmode .= $mode[3] + $mode[4] + $mode[5];
-		$newmode .= $mode[6] + $mode[7] + $mode[8];
+		$newmode = $mode[0];
+		$newmode .= $mode[1] + $mode[2] + $mode[3];
+		$newmode .= $mode[4] + $mode[5] + $mode[6];
+		$newmode .= $mode[7] + $mode[8] + $mode[9];
 		return $newmode;
 	}
 
@@ -328,5 +331,3 @@ class WP_Filesystem_Base {
 		return (bool) preg_match('|[^\x20-\x7E]|', $text); //chr(32)..chr(127)
 	}
 }
-
-?>
