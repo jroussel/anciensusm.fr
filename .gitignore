@@ -7,6 +7,7 @@ wp-content/gallery/
 # WordPress
 .htaccess
 wp-config.php
+wp-config-prod.php
 wp-content/uploads/
 wp-content/blogs.dir/
 wp-content/upgrade/
